@@ -1,0 +1,13 @@
+1. Ask any doubts you have about the problem
+	Are we always gonna have valid inputs?
+2. Bring up good examples
+3. Input error checking
+	If input is array, check if null || 0
+4. Identify type of problems and what you will use to solve it
+5. Identify which checks have to be though of for this specific kind of problems 
+	(i.e. two pointers: empty sequence? edge cases?)
+6. Come up with a solution
+
+
+
+
