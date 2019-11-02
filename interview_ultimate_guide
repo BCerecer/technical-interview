@@ -26,6 +26,8 @@ Dynamic Programing
 	Use Case
 		optimization
 		when pattern involves result of previous result
+	Notes
+		design for simple scenario, once it works test on complex
 Depth First Search
 	Code Example
 		void dfs(Node n){
@@ -121,9 +123,13 @@ Stack
 		brackets
 Trees
 =======================TOOLS========================
+**Arrays**
+	
 **int**
 	NOO! 	int a; 		if(a == null)
 	YES! 	int a[]; 	if(a == null)
+	a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign 
+	Integer.valueOf(str);								//converts numbers in string to int(only works for string of numbers)
 **Math**
 	Math.abs(x);
 	Math.max(x, y);
@@ -135,6 +141,7 @@ Trees
 	str.length();										//returns lenght of string
 	str.substring(6);									//returns substring after index (including)
 	str.substring(0, 6);								//returns substring in between those indices (excluding last index)
+
 
 
 
