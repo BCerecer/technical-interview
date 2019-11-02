@@ -40,7 +40,7 @@ Depth First Search
 	Notes 
 		similar to stack
 Two Pointers
-	Use Cases
+	Use Case
 		substring/subarray
 		sliding window
 	Code Example
