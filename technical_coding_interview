@@ -17,9 +17,19 @@ Binary Search
         } 
 	*Complexity
 		O(logn)
-Breadth First Search
+Breadth First Search Tree
 	Code Example
-
+        Queue<Node> queue = new LinkedList<Node>(); 
+        queue.add(root); 
+        while (!queue.isEmpty())  
+        { 
+            Node current = queue.remove(); 
+            //do
+            if (current.left != null)
+                queue.add(current.left); 
+            if (current.right != null) 
+                queue.add(current.right); 
+        }
 	Notes
 		similar to queue
 Dynamic Programing
@@ -28,7 +38,7 @@ Dynamic Programing
 		when pattern involves result of previous result
 	Notes
 		design for simple scenario, once it works test on complex
-Depth First Search
+Depth First Search Tree
 	Code Example
 		void dfs(Node n){
 			if(n == null)
@@ -124,7 +134,8 @@ Stack
 Trees
 =======================TOOLS========================
 **Arrays**
-	
+	Arrays.sort(array)										//Time O(nlogn)
+	Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda 	
 **int**
 	NOO! 	int a; 		if(a == null)
 	YES! 	int a[]; 	if(a == null)

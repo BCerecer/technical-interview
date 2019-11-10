@@ -1,0 +1,65 @@
+Preparation:
+
+#Any interview preparation involves mastering 5 important things. Coding, design, language specific concepts, previous projects and resume and last but not the least company specific reading.
+
+##Coding = See technical_coding_interview
+
+##Design = Questions explaining design of systems/apps 
+         If you were to build a social networking website from scratch, how would you design the system?
+
+https://www.hiredintech.com/classrooms/system-design/lesson/52
+https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka
+
+System Design Basics
+Key Characteristics of Distributed Systems
+Load Balancing
+Caching
+Data Partitioning
+Indexes
+Proxies
+Redundancy and Replication
+SQL vs. NoSQL
+CAP Theorem
+Consistent Hashing
+Long-Polling vs WebSockets vs Server-Sent Events
+
+Design a URL Shortening service like TinyURL
+Design Pastebin
+Design Instagram
+Design Dropbox or Google Drive
+Design Facebook Messenger
+Design Twitter
+Design Youtube or Netflix
+Design Typeahead Suggestion
+Design an API Rate Limiter
+Design Twitter Search
+Design a Web Crawler or Type-Ahead (search engine related services)
+Design Facebook’s Newsfeed
+Design Quora, Reddit or Hackernews
+Design Yelp or Nearby Friends
+Design Uber backend
+Design Ticketmaster 
+
+##Language specific concepts = Specific language questions
+                             What is inheritance in Java?
+oop
+uml
+objects
+class
+    properties
+    methods
+functions
+interface
+primitives
+inheritance
+recursion
+polymorphism
+
+##Previous projects/Resume = Explain to them how you have collaborated with others in your past projects. The questions 
+                           for this section could be either something specific, like a skill on your resume or about a project.
+                           Could you tell me a little bit about the project you are most proud of?
+
+##Company knowledge/curiosity = Learn principles and vision of company
+                              So why did you choose XYZ as your next endeavor?
+
+https://blog.usejournal.com/how-i-got-into-google-161c97913b8b
