@@ -221,19 +221,10 @@
 ### Sorting Algorithms
 
 ### Graph Algorithsm:
-- ###Topological Sort
-- ###Dijkstra's Algorithm
-- ###Bellman-Ford Algorithm
-- ###Floyd-Warshall Algorithm
-- ###Prim's Algorithm
-- ###Kruskal's Algorithm
-
-
-
-
-
-
-
-
-
+- #### Topological Sort
+- #### Dijkstra's Algorithm
+- #### Bellman-Ford Algorithm
+- #### Floyd-Warshall Algorithm
+- #### Prim's Algorithm
+- #### Kruskal's Algorithm
 
