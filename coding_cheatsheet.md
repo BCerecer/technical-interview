@@ -29,6 +29,7 @@
 	
 #### •Tree
 - Code Example:
+
 	        Queue<Node> queue = new LinkedList<Node>(); 
 	        queue.add(root); 
 	        while (!queue.isEmpty())  
@@ -40,6 +41,7 @@
 	            if (current.right != null) 
 	                queue.add(current.right); 
 	        }
+
 - Complexity:
 	 - O(n)
 - Notes:
@@ -54,6 +56,7 @@
 
 ### Depth First Search Tree
  - Code Example:
+
 		void dfs(Node n){
 			if(n == null)
 				return;
@@ -63,6 +66,7 @@
 			dfs(n.left);
 			//do postorder: right node first
 		}
+
  - Time Complexity:
 		O(n)
  - Notes: 
@@ -79,11 +83,13 @@
 	- substring/subarray
 	- sliding window
 - Code Example:
+
 		int i = 0, j = 0;
 		while(scenario)			//j<ra.length
 		{
 			i++, j++;
 		}
+
 - Check:
 	- Empty sequence
 	- Sequence with 1 or 2 elements
@@ -97,6 +103,7 @@
 - Use Case:
 	- Count frequency of an element
 - Code Example:
+
 		Map<Integer, Integer> hash = new HashMap();
 		.put(k, v)				//inserts key and value
 		.putIfAbsent(k, v)		//if key doesn't exist, inserts key and value //else nothing
@@ -105,6 +112,7 @@
 		.size()					//returns size of hashmap
 		.remove(k)				//removes the value mapped to k, returns value
 		.values()				//iterate by doing for(int val:map.values())
+
 - Time Complexity:
 	- Time	O(1)			//to look for values
 	- Memory	O(n)			//elements inserted
@@ -119,13 +127,17 @@
 	- Max Heap = each node its greater or equal to its children (root is greatest element in heap)
 - Code Example:
 	- Min Heap:
+
 			PriorityQueue<Integer> minHeap = new PriorityQueue();
+
 	- Max Heap:
+
 			PriorityQueue<Integer> minHeap = new PriorityQueue(Collections.reverseOrder());
 			.add(i);				//adds i
 			.size();				//returns size of heap
 			.remove();				//removes root, returns element
 			.peek();				//returns root element
+
 - Time Complexity:
 	- Time 	O(n)			//to build
 	- Access Max / Min: O(1)
@@ -138,6 +150,7 @@
 ### LindkedList
 - Code Example:
 	- Iterate single linkelist:
+
 			ListNode prev = null;
 			ListNode curr = head;
 			while (curr != null) {
@@ -147,6 +160,7 @@
 	        curr = nextTemp;
 			}
 			return prev;
+
 - Time Complexity:
 	- Iterate: O(n)
 	- Recursive: O(n)
@@ -180,27 +194,27 @@
 
 ## TOOLS
 ### Arrays
-- Arrays.sort(array)										//Time O(nlogn)
-- Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda
+- `Arrays.sort(array)										//Time O(nlogn)`
+- `Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda`
 
 ### int
-- NOO! 	int a; 		if(a == null)
-- YES! 	int a[]; 	if(a == null)
-- a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign 
-- Integer.valueOf(str);								//converts numbers in string to int(only works for string of numbers)
+- NOO! 	`int a; 		if(a == null)`
+- YES! 	`int a[]; 	if(a == null)`
+- `a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign`
+- `Integer.valueOf(str);								//converts numbers in string to int(only works for string of numbers)`
 
 ### Math
-- Math.abs(x);
-- Math.max(x, y);
-- Math.min(x, y);
+- `Math.abs(x);`
+- `Math.max(x, y);`
+- `Math.min(x, y);`
 
 ### String
-- str = str.replaceAll("substring", "replacement");	//replaces substring for replacement 
-- str.indexOf('x');									//returns index of char in string
-- str.contains('x');									//returns boolean depending if string has character inside
-- str.length();										//returns lenght of string
-- str.substring(6);									//returns substring after index (including)
-- str.substring(0, 6);								//returns substring in between those indices (excluding last index)
+- `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
+- `str.indexOf('x');									//returns index of char in string`
+- `str.contains('x');									//returns boolean depending if string has character inside`
+- `str.length();										//returns lenght of string`
+- `str.substring(6);									//returns substring after index (including)`
+- `str.substring(0, 6);								//returns substring in between those indices (excluding last index)`
 
 
 ## EXTRAS
