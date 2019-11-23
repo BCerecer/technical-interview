@@ -1,9 +1,9 @@
-#ULTIMATE CHEAT SHEET
+# ULTIMATE CHEAT SHEET
 
-##TECHNIQUES/ALGORITHMS
+## TECHNIQUES/ALGORITHMS
 
-#####Backtrack
-#####Binary Search
+##### Backtrack
+##### Binary Search
 - Use Case:
 	- Sorted Array
 - Code Example:
@@ -20,12 +20,12 @@
 - Time Complexity:
 	- O(logn)
 
-#####Breadth First Search 
-######•Graph
+##### Breadth First Search 
+###### •Graph
 - Time Complexity:
 	- O(|V| + |E|)
 	
-######•Tree
+###### •Tree
 - Code Example:
 	        Queue<Node> queue = new LinkedList<Node>(); 
 	        queue.add(root); 
@@ -43,14 +43,14 @@
 - Notes:
 	 - Similar to queue
 
-#####Dynamic Programing
+##### Dynamic Programing
 - Use Case:
 	 - Optimization
 	 - When pattern involves result of previous result
 - Notes
 	 - Design for simple scenario, once it works test on complex
 
-#####Depth First Search Tree
+##### Depth First Search Tree
  - Code Example:
 		void dfs(Node n){
 			if(n == null)
@@ -66,13 +66,13 @@
  - Notes: 
 	 - Similar to stack
 
-#####Greedy Algorithms
+##### Greedy Algorithms
 
-#####Recursion
+##### Recursion
 
-#####Tries
+##### Tries
 
-#####Two Pointers (sliding window)
+##### Two Pointers (sliding window)
 - Use Case:
 	- substring/subarray
 	- sliding window
@@ -90,8 +90,8 @@
 	- When using two pointers always use while NOT for loops!
 	- The way you implement the while loop and its conditions will vary depending on problem
 		
-##DATA STRUCTURES
-#####Hash Map
+## DATA STRUCTURES
+##### Hash Map
 - Use Case:
 	- Count frequency of an element
 - Code Example:
@@ -109,7 +109,7 @@
 - Notes
 	- key = ra[index]; value = index
 
-#####Heaps
+##### Heaps
 - Use Case:
 	- Find the x largest(minHeap)/smallest(maxHeap) element
 - Types:
@@ -133,7 +133,7 @@
 - Notes
 	- Element you want to return needs to be at root
 
-#####LindkedList
+##### LindkedList
 - Code Example:
 	- Iterate single linkelist:
 			ListNode prev = null;
@@ -158,14 +158,14 @@
 - Notes:
 	- Remember to use 3 pointers and move iteratively!
 
-#####Queue
+##### Queue
 - Time Complexity:
 	- Access: O(n)
 	- Search: O(n)
 	- Insert: O(1)
 	- Remove: O(1)
 
-#####Stack
+##### Stack
 - Use Case
 	- brackets
 - Time Complexity
@@ -174,25 +174,25 @@
 	- Insert: O(1)
 	- Remove: O(1)
 
-#####Trees
+##### Trees
 
-##TOOLS
-#####Arrays
+## TOOLS
+##### Arrays
 - Arrays.sort(array)										//Time O(nlogn)
 - Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda
 
-#####int
+##### int
 - NOO! 	int a; 		if(a == null)
 - YES! 	int a[]; 	if(a == null)
 - a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign 
 - Integer.valueOf(str);								//converts numbers in string to int(only works for string of numbers)
 
-#####Math
+##### Math
 - Math.abs(x);
 - Math.max(x, y);
 - Math.min(x, y);
 
-#####String
+##### String
 - str = str.replaceAll("substring", "replacement");	//replaces substring for replacement 
 - str.indexOf('x');									//returns index of char in string
 - str.contains('x');									//returns boolean depending if string has character inside
@@ -201,10 +201,10 @@
 - str.substring(0, 6);								//returns substring in between those indices (excluding last index)
 
 
-##EXTRAS
-#####Sorting Algorithms
+## EXTRAS
+##### Sorting Algorithms
 
-#####Graph Algorithsm:
+##### Graph Algorithsm:
 - #####Topological Sort
 - #####Dijkstra's Algorithm
 - #####Bellman-Ford Algorithm
