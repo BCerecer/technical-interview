@@ -7,7 +7,7 @@
 - Use Case:
 	- Sorted Array
 - Code Example:
-		int l = 0, r = arr.length - 1; 
+		`int l = 0, r = arr.length - 1; 
         while (l <= r) { 
             int m = l + (r - l) / 2; 
             if (arr[m] == x) 
@@ -16,7 +16,7 @@
                 l = m + 1; 
             else
                 r = m - 1; 
-		}
+		}`
 - Time Complexity:
 	- O(logn)
 
