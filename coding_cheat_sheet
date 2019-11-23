@@ -1,6 +1,8 @@
-***************ULTIMATE GUIDE***************
+***************ULTIMATE CHEAT SHEET***************
 
 =================TECHNIQUES/ALGOS=================
+Backtrack
+
 Binary Search
 	Use Case
 		Sorted Array
@@ -17,27 +19,37 @@ Binary Search
         } 
 	*Complexity
 		O(logn)
-Breadth First Search Tree
-	Code Example
-        Queue<Node> queue = new LinkedList<Node>(); 
-        queue.add(root); 
-        while (!queue.isEmpty())  
-        { 
-            Node current = queue.remove(); 
-            //do
-            if (current.left != null)
-                queue.add(current.left); 
-            if (current.right != null) 
-                queue.add(current.right); 
-        }
-	Notes
-		similar to queue
+
+Breadth First Search 
+	Graph
+		*Complexity
+			O(|V| + |E|)
+
+	Tree
+		Code Example
+	        Queue<Node> queue = new LinkedList<Node>(); 
+	        queue.add(root); 
+	        while (!queue.isEmpty())  
+	        { 
+	            Node current = queue.remove(); 
+	            //do
+	            if (current.left != null)
+	                queue.add(current.left); 
+	            if (current.right != null) 
+	                queue.add(current.right); 
+	        }
+	    *Complexity
+	    	O(n)
+		Notes
+			similar to queue
+
 Dynamic Programing
 	Use Case
 		optimization
 		when pattern involves result of previous result
 	Notes
 		design for simple scenario, once it works test on complex
+
 Depth First Search Tree
 	Code Example
 		void dfs(Node n){
@@ -49,9 +61,18 @@ Depth First Search Tree
 			dfs(n.left);
 			//do postorder: right node first
 		}
+	*Complexity
+		O(n)
 	Notes 
 		similar to stack
-Two Pointers
+
+Greedy
+
+Recursion
+
+Tries
+
+Two Pointers (sliding window)
 	Use Case
 		substring/subarray
 		sliding window
@@ -68,6 +89,7 @@ Two Pointers
 	Notes
 		when using two pointers always use while NOT for loops!
 		the way you implement the while loop and its conditions will vary depending on problem
+		
 =======================DATA========================
 Hash Map
 	Use Case
@@ -86,6 +108,7 @@ Hash Map
 		Memory	O(n)			//elements inserted
 	Notes
 		key = ra[index]; value = index
+
 Heaps
 	Use Case
 		use them when you need to find the x largest(minHeap)/smallest(maxHeap) element
@@ -103,9 +126,13 @@ Heaps
 		.peek();				//returns root element
 	*Complexity
 		Time 	O(n)			//to build
+				Access Max / Min: O(1)
+				Insert: O(log(n))
+				Remove Max / Min: O(log(n))
 		Memory	O(n)			//elements inserted
 	Notes
 		the element you want to return needs to be at root!
+
 LindkedList
 	Code Example
 	#iterate single ll
@@ -119,6 +146,10 @@ LindkedList
 	    }
 	    return prev;
 	 *Complexity
+		Access: O(n)
+		Search: O(n)
+		Insert: O(1)
+		Remove: O(1)
 		 -iterate
 		 	Time 	O(n)
 		 	Memory 	O(1)
@@ -127,10 +158,23 @@ LindkedList
 		 	Memory 	O(n)
 		Notes
 			remember to use 3 pointers and move iteratively!
+
 Queue
+	*Complexity
+		Access: O(n)
+		Search: O(n)
+		Insert: O(1)
+		Remove: O(1)
+
 Stack
 	Use Case
 		brackets
+	*Complexity
+		Access: O(n)
+		Search: O(n)
+		Insert: O(1)
+		Remove: O(1)
+
 Trees
 =======================TOOLS========================
 **Arrays**
@@ -152,6 +196,20 @@ Trees
 	str.length();										//returns lenght of string
 	str.substring(6);									//returns substring after index (including)
 	str.substring(0, 6);								//returns substring in between those indices (excluding last index)
+
+
+======================EXTRAS===========================
+Sorting Algorithms
+
+Graph Algorithsm:
+	Topological Sort
+	Dijkstra's Algorithm
+	Bellman-Ford Algorithm
+	Floyd-Warshall Algorithm
+	Prim's Algorithm
+	Kruskal's Algorithm
+
+
 
 
 

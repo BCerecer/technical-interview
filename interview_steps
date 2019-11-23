@@ -1,0 +1,46 @@
+Introduction:
+    
+    Option 1:
+    Hello my name is Blas Cerecer I am a software engineer currently working for NIWC Pacific
+        Would you like to hear some of my background? 
+        So, I grew up in Mexico and since I was 4 years old my dad bought me a Nintendo 64, which I loved to play. 
+        As time went by, I started to asking myself how did people even do games and got into coding. When I started highschool,
+        I started to follow tutorials about coding in Java, which I liked them. I remember my first project that I gave 
+        my self was to try to do a calculator using user input to do its task. After I was able to achieve it, I figured it out
+        that I wanted to study computer science on college. After I finished high school in Mexico and came to the US to 
+        study computer science. At the beginning the biggest challenge was the language since my English was terrible
+        and had to take ESL classes. I got the hang of it as time went by and continue my journey through college to get 
+        my degree of computer science. During college I developed an android game using Java and a framework called 
+        libgdx which I published it on the Google Play Store and got a couple thousands downloads. I also got an internship 
+        at a startup in Encinitas, which was a good experience of a highly demanding environment since you have to be doing a 
+        bunch of stuff and learning constantly. After some months on it, I got out of there mainly because of the driving distance and that I was busy with college. Once, I got out of college I started working on NIWC and I'm still working there. It's been a great learning experience since I've been able to work on different projects in the organization. 
+
+    Option 2:
+    Hi I’m Blas Cerecer and I graduated from San Diego State University in 2016 with a degree in Computer Science. My interests are in java, Front End Engineering and like to make games as a hobby. 
+
+    I am currently working at NIWC Pacific, which is a research facility of the Navy. My current role involves working with AWS to set up an environment for an inventory web application. In the past I've also worked in projects that involved working with Java and also front end with libraries such as reactjs. 
+
+    Ever since I was in highschool Google has been my dream job because I love their work culture and the beautiful design and creative products that they come up with. 
+
+Coding steps:
+    1. Ask any doubts you have about the problem
+    	How big is the size of the input?
+        How big is the range of values?
+        What kind of values are there? Are there negative numbers? Floating points? Will there be empty inputs?
+        Are there duplicates within the input?
+        What are some extreme cases of the input?
+        How is the input stored? If you are given a dictionary of words, is it a list of strings or a trie?
+    2. Bring up good examples
+    3. Input error checking
+    	If input is array, check if null || 0
+        Corner Cases
+            Check for overflow/underflow
+            Negative numbers
+    4. Identify type of problems and what you will use to solve it
+    5. Identify which checks have to be though of for this specific kind of problems 
+    	(i.e. two pointers: empty sequence? edge cases?)
+    6. Come up with a solution
+
+
+
+

@@ -1,14 +1,105 @@
+Get interviews:
+https://blog.usejournal.com/how-i-got-7-job-offers-in-8-weeks-part-1-please-interview-me-21e6f4ded106
+
 Preparation:
+
+https://medium.com/@yashgirdhar/11-companies-55-interviews-9-offers-including-google-and-amazon-heres-what-i-have-to-share-293852c1c98f
+
+https://blog.usejournal.com/how-i-got-into-google-161c97913b8b
 
 #Any interview preparation involves mastering 5 important things. Coding, design, language specific concepts, previous projects and resume and last but not the least company specific reading.
 
-##Coding = See technical_coding_interview
+#################################################### CODING ##################################################
 
-##Design = Questions explaining design of systems/apps 
-         If you were to build a social networking website from scratch, how would you design the system?
+LeetCode
+See technical_coding_interview
+pramp.com
+https://www.udemy.com/course/data-structure-and-algorithms-analysis/
+https://www.udemy.com/course/software-engineer-interview-unleashed/
+
+############################################## LANGUAGE SPECIFIC CONCEPTS ############################################
+                             
+
+########4 Fundamental OOPs Concepts:##########
+
+#Encapsulation = The process of wrapping the data (variables) and code acting on the data (methods) together as a single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the methods of their current class. Therefore, it is also known as data hiding.
+
+    To achieve encapsulation in Java −
+        Declare the variables of a class as private.
+        Provide public setter and getter methods to modify and view the variables values.
+
+#Abstraction = The process of selecting data from a larger pool to show only the relevant details to the object. It helps to reduce programming complexity and effort.
+
+#Polymorphism = A programming language's ability to process objects differently depending on their data type or class.
+
+#Inheritance = a feature that represents the "is a" relationship between different classes.
+
+###############################################
+
+Function = Method = Procedure
+
+Data = Characteristics = Properties = Attributes      
+
+OOP = Define data type or data structures which becomes an object by including both data and functions
+
+Unified Modeling Language (uml) = standard for languages such as having classes
+
+Primitives = most basic data types available within the Java language. There are 8: boolean, byte, char, short, int, long, float and double
+
+Literals = Any constant value which can be assigned to the variable is called as literal/constant
+
+Variables = Reserved area allocated in memory. In other words, it is a name of memory location.
+    -Local Variable = A variable declared inside the body of the method is called local variable. You can use this variable only within that method and the other methods in the class aren't even aware that the variable exists. A local variable cannot be defined with "static" keyword.
+    -Instance Variable = A variable declared inside the class but outside the body of the method, is called instance variable. It is not declared as static. It is called instance variable because its value is instance specific and is not shared among instances.
+    -Static Variable = A variable which is declared as static is called static variable. It cannot be local. You can create a single copy of static variable and share among all the instances of the class. Memory allocation for static variable happens only once when the class is loaded in the memory.
+
+Packages = A package in Java is used to group related classes. Think of it as a folder in a file directory. We use packages to avoid name conflicts, and to write a better maintainable code. Packages are divided into two categories:
+    Built-in Packages (packages from the Java API)
+    User-defined Packages (create your own packages)
+
+Recursion = 
+
+Class = Determines how an object will behave and what the object will contain. In other words, it is a blueprint or a set of instruction to build a specific type of object.
+    -Methods = A method is a block of code which only runs when it is called.
+    -Modifiers : A class can be public or has default access
+    -Class name: The name should begin with a initial letter (capitalized by convention).
+    -Superclass(if any): The name of the class’s parent (superclass), if any, preceded by the keyword extends. A class can only extend (subclass) one parent.
+    -Interfaces(if any): A comma-separated list of interfaces implemented by the class, if any, preceded by the keyword implements. A class can implement more than one interface.
+    -Body: The class body surrounded by braces, { }.
+
+Data hiding = The process of hiding details of an object or function. Information hiding is a powerful programming technique because it reduces complexity.
+
+Interface = the languages and codes that the applications use to communicate with each other and with the hardware.
+
+Messaging = Message passing is a form of communication used in parallel programming and object-oriented programming.
+
+Object = a self-contained entity that consists of both data and methods to manipulate the data.
+
+############################################## PREVIOUS PROJECTS/RESUME ##############################################
+
+Explain to them how you have collaborated with others in your past projects. The questions for this section could be either something specific, like a skill on your resume or about a project.
+
+Could you tell me a little bit about the project you are most proud of?
+
+############################################# COMPANY KNOWLEDGE/CURIOSITY ##############################################
+
+Learn principles and vision of company
+So why did you choose XYZ as your next endeavor?
+
+
+
+This sections is usually ask for senior positions(10+ years)
+#################################################### DESIGN ####################################################
+
+Questions explaining design of systems/apps 
+If you were to build a social networking website from scratch, how would you design the system?
 
 https://www.hiredintech.com/classrooms/system-design/lesson/52
 https://www.youtube.com/playlist?list=PLA8lYuzFlBqAy6dkZHj5VxUAaqr4vwrka
+https://www.geeksforgeeks.org/design-scalable-system-like-instagram/
+https://hackernoon.com/how-not-to-design-netflix-in-your-45-minute-system-design-interview-64953391a054
+https://gist.github.com/vasanthk/485d1c25737e8e72759f
+https://github.com/donnemartin/system-design-primer
 
 System Design Basics
 Key Characteristics of Distributed Systems
@@ -39,27 +130,10 @@ Design Quora, Reddit or Hackernews
 Design Yelp or Nearby Friends
 Design Uber backend
 Design Ticketmaster 
+playstore app
+instagram
+web browser
+countdown app
+swiggy rider app
+Booking.com booking listings screen
 
-##Language specific concepts = Specific language questions
-                             What is inheritance in Java?
-oop
-uml
-objects
-class
-    properties
-    methods
-functions
-interface
-primitives
-inheritance
-recursion
-polymorphism
-
-##Previous projects/Resume = Explain to them how you have collaborated with others in your past projects. The questions 
-                           for this section could be either something specific, like a skill on your resume or about a project.
-                           Could you tell me a little bit about the project you are most proud of?
-
-##Company knowledge/curiosity = Learn principles and vision of company
-                              So why did you choose XYZ as your next endeavor?
-
-https://blog.usejournal.com/how-i-got-into-google-161c97913b8b
