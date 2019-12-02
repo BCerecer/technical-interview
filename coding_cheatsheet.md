@@ -22,12 +22,27 @@
 - Time Complexity:
 	- O(logn)
 
-### Breadth First Search 
-#### •Graph
+### Dynamic Programing
+- Use Case:
+	 - When pattern involves result of previous result
+	 - Overlapping subproblems
+- Notes
+	 - Design for simple scenario, once it works test on complex
+
+### Graphs
+#### •Breadth First Search
 - Time Complexity:
 	- O(|V| + |E|)
-	
-#### •Tree
+
+### Greedy Algorithms
+- Definition: Algorithms that make optimal choice per iteration to achieve optimal solution
+- Use Case:
+	- Optimal local solution
+
+### Recursion
+
+### Trees
+#### •Breadth First Search
 - Code Example:
 
 	        Queue<Node> queue = new LinkedList<Node>(); 
@@ -47,15 +62,8 @@
 - Notes:
 	 - Similar to queue
 
-### Dynamic Programing
-- Use Case:
-	 - Optimization
-	 - When pattern involves result of previous result
-- Notes
-	 - Design for simple scenario, once it works test on complex
-
-### Depth First Search Tree
- - Code Example:
+#### •Depth First Search
+- Code Example:
 
 		void dfs(Node n){
 			if(n == null)
@@ -71,10 +79,6 @@
 		O(n)
  - Notes: 
 	 - Similar to stack
-
-### Greedy Algorithms
-
-### Recursion
 
 ### Tries
 
