@@ -29,58 +29,12 @@
 - Notes
 	 - Design for simple scenario, once it works test on complex
 
-### Graphs
-#### •Breadth First Search
-- Time Complexity:
-	- O(|V| + |E|)
-
 ### Greedy Algorithms
 - Definition: Algorithms that make optimal choice per iteration to achieve optimal solution
 - Use Case:
 	- Optimal local solution
 
 ### Recursion
-
-### Trees
-#### •Breadth First Search
-- Code Example:
-
-	        Queue<Node> queue = new LinkedList<Node>(); 
-	        queue.add(root); 
-	        while (!queue.isEmpty())  
-	        { 
-	            Node current = queue.remove(); 
-	            //do
-	            if (current.left != null)
-	                queue.add(current.left); 
-	            if (current.right != null) 
-	                queue.add(current.right); 
-	        }
-
-- Complexity:
-	 - O(n)
-- Notes:
-	 - Similar to queue
-
-#### •Depth First Search
-- Code Example:
-
-		void dfs(Node n){
-			if(n == null)
-				return;
-			//do preorder: left node first
-			dfs(n.left);
-			//do inorder: root node first
-			dfs(n.left);
-			//do postorder: right node first
-		}
-
- - Time Complexity:
-		O(n)
- - Notes: 
-	 - Similar to stack
-
-### Tries
 
 ### Two Pointers (sliding window)
 - Use Case:
@@ -103,6 +57,12 @@
 	- The way you implement the while loop and its conditions will vary depending on problem
 		
 ## DATA STRUCTURES
+
+### Graphs
+#### •Breadth First Search
+- Time Complexity:
+	- O(|V| + |E|)
+
 ### Hash Map
 - Use Case:
 	- Count frequency of an element
@@ -195,6 +155,52 @@
 	- Remove: O(1)
 
 ### Trees
+#### •Breadth First Search
+- Code Example:
+
+        Queue<Node> queue = new LinkedList<Node>(); 
+        queue.add(root); 
+        while (!queue.isEmpty())  
+        { 
+            Node current = queue.remove(); 
+            //do
+            if (current.left != null)
+                queue.add(current.left); 
+            if (current.right != null) 
+                queue.add(current.right); 
+        }
+
+- Complexity:
+	 - O(n)
+- Notes:
+	 - Similar to queue
+
+#### •Depth First Search
+- Use Case:
+	 - Preorder: Create copy of tree
+	 - Postorder: Delete tree
+- Code Example:
+		
+		//RECURSIVE
+		void dfs(Node n){
+			if(n == null)
+				return;
+			//do preorder: left node first
+			dfs(n.left);
+			//do inorder: root node first
+			dfs(n.left);
+			//do postorder: right node first
+		}
+
+ - Time Complexity:
+		O(n)
+ - Notes: 
+	 - Similar to stack
+	 - Preorder: (Root, Left, Right) 
+	 - Inorder: (Left, Root, Right)
+	 - Postorder: (Left, Right, Root)
+
+### Tries
 
 ## TOOLS
 ### Arrays
