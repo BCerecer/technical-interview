@@ -24,6 +24,33 @@
 	- O(logn)
 
 
+### Bit Manipulation
+- Use Case:
+	- 2^n multiplications/divitions
+- Code Example:
+		
+		method( int num, int i )
+
+		//Get Bit = 
+		return ( (num & (1 << i) ) != 0 );
+
+		//Set Bit = 
+		return num | (1 << i);
+
+		//Clear Bit = 
+		return num & ( ~(1 << i) )
+
+- Notes:
+	- ^ = XOR = eXclusive OR = only 1 when different bits
+	- ~ = NOT = negation = opposite of current bits
+	- 2's Comp = For positive numbers, left bit=0; other bits same
+				 For negative numbers, left bit=1; write absolute value in bits; NOT bits; add 1 bit;
+	- >> 1 = Shift all bits 1 space to right = / 2
+	- >> 2 = Shift all bits 2 space to right = / 4
+	- << 3 = Shift all bits 3 space to right = * 8
+
+
+
 ### Dynamic Programing
 - Use Case:
 	 - When pattern involves result of previous result
