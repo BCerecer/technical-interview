@@ -75,6 +75,15 @@ Messaging = Message passing is a form of communication used in parallel programm
 
 Object = a self-contained entity that consists of both data and methods to manipulate the data.
 
+Static = variables/fields and methods belongs to the class instead of the object (can be called without creating an object of the class). Only one copy of it and is shared across all objects declared from this class.  
+         static class let us use a class within a class
+
+
+Nested classes =    The nested class architecture is divided into two:
+                        nested classes that are declared static are called static nested classes whereas,
+                        nested classes that are non-static are called inner classes
+                    The main difference between these two is that the inner classes have access to all member of the enclosing class (including private), whereas the static nested classes only have access to static members of the outer class.
+
 ############################################## PREVIOUS PROJECTS/RESUME ##############################################
 
 Explain to them how you have collaborated with others in your past projects. The questions for this section could be either something specific, like a skill on your resume or about a project.

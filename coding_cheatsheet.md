@@ -1,8 +1,9 @@
 # ULTIMATE CHEATSHEET
 
 ## TECHNIQUES/ALGORITHMS
-
 ### Backtrack
+
+
 ### Binary Search
 - Use Case:
 	- Sorted Array
@@ -22,6 +23,7 @@
 - Time Complexity:
 	- O(logn)
 
+
 ### Dynamic Programing
 - Use Case:
 	 - When pattern involves result of previous result
@@ -29,12 +31,15 @@
 - Notes
 	 - Design for simple scenario, once it works test on complex
 
+
 ### Greedy Algorithms
 - Definition: Algorithms that make optimal choice per iteration to achieve optimal solution
 - Use Case:
 	- Optimal local solution
 
+
 ### Recursion
+
 
 ### Two Pointers (sliding window)
 - Use Case:
@@ -55,13 +60,79 @@
 - Notes:
 	- When using two pointers always use while NOT for loops!
 	- The way you implement the while loop and its conditions will vary depending on problem
+
 		
 ## DATA STRUCTURES
-
 ### Graphs
+- Code Example:
+		
+		//Graph represented by adjacency list
+		class Graph{
+			public Node[] nodes;
+		}
+
+		class Node{
+			public String name;
+			public Node[] children;
+		}
+ - Notes: 
+	 - Directed graphs explicitly tells the direction of which nodes are connected
+	 - Undirected graphs have two way connection as long as nodes have one path
+	 - Adjacency list is the most common/efficient way to represent a graph. Alternative: Adjacency Matrices
+
 #### •Breadth First Search
+- Use Case:
+	 - Find shortest path between two nodes
+- Code Example:
+
 - Time Complexity:
 	- O(|V| + |E|)
+- Notes:
+	 - 
+
+#### •Depth First Search
+- Use Case:
+	 - Preferred to visit every node in the graph (Simpler)
+- Code Example:
+		
+		//Recursive version
+		public void dfs(int start) {
+		    boolean[] isVisited = new boolean[adjVertices.size()];
+		    dfsRecursive(start, isVisited);
+		}
+		 
+		private void dfsRecursive(int current, boolean[] isVisited) {
+		    isVisited[current] = true;
+		    visit(current);
+		    for (int dest : adjVertices.get(current)) {
+		        if (!isVisited[dest])
+		            dfsRecursive(dest, isVisited);
+		    }
+		}
+
+		//Iterative version
+		public void dfsWithoutRecursion(int start) {
+		    Stack<Integer> stack = new Stack<Integer>();
+		    boolean[] isVisited = new boolean[adjVertices.size()];
+		    stack.push(start);
+		    while (!stack.isEmpty()) {
+		        int current = stack.pop();
+		        isVisited[current] = true;
+		        visit(current);
+		        for (int dest : adjVertices.get(current)) {
+		            if (!isVisited[dest])
+		                stack.push(dest);
+		        }
+		    }
+		}
+
+- Time Complexity:
+	 - 
+- Notes:
+	 - 
+
+
+
 
 ### Hash Map
 - Use Case:
@@ -83,6 +154,7 @@
 - Notes
 	- key = ra[index]; value = index
 
+
 ### Heaps
 - Use Case:
 	- Find the x largest(minHeap)/smallest(maxHeap) element
@@ -103,13 +175,14 @@
 			.peek();				//returns root element
 
 - Time Complexity:
-	- Time 	O(n)			//to build
+	- Time 	O(n)				//to build
 	- Access Max / Min: O(1)
 	- Insert: O(log(n))
 	- Remove Max / Min: O(log(n))
 	- Memory	O(n)			//elements inserted
 - Notes
 	- Element you want to return needs to be at root
+
 
 ### LindkedList
 - Code Example:
@@ -138,12 +211,14 @@
 - Notes:
 	- Remember to use 3 pointers and move iteratively!
 
+
 ### Queue
 - Time Complexity:
 	- Access: O(n)
 	- Search: O(n)
 	- Insert: O(1)
 	- Remove: O(1)
+
 
 ### Stack
 - Use Case
@@ -153,6 +228,7 @@
 	- Search: O(n)
 	- Insert: O(1)
 	- Remove: O(1)
+
 
 ### Trees
 #### •Breadth First Search
@@ -170,8 +246,8 @@
                 queue.add(current.right); 
         }
 
-- Complexity:
-	 - O(n)
+- Time Complexity:
+	 - Traversal: O(n)
 - Notes:
 	 - Similar to queue
 
@@ -181,7 +257,7 @@
 	 - Postorder: Delete tree
 - Code Example:
 		
-		//RECURSIVE
+		//Recursive
 		void dfs(Node n){
 			if(n == null)
 				return;
@@ -193,14 +269,80 @@
 		}
 
  - Time Complexity:
-		O(n)
+	 - Traversal: O(n)
  - Notes: 
 	 - Similar to stack
 	 - Preorder: (Root, Left, Right) 
 	 - Inorder: (Left, Root, Right)
 	 - Postorder: (Left, Right, Root)
+	 - Trees are connected graph without cycles
 
 ### Tries
+- Use Case:
+	 - Word/prefix lookups
+- Code Example:
+
+		class TrieNode {
+		    public char val;
+		    public boolean isWord; 
+		    public TrieNode[] children = new TrieNode[26];
+		    public TrieNode() {}
+		    TrieNode(char c){
+		        TrieNode node = new TrieNode();
+		        node.val = c;
+		    }
+		}
+
+		public class Trie {
+		    private TrieNode root;
+		    public Trie() {
+		        root = new TrieNode();
+		        root.val = ' ';
+		    }
+
+		    public void insert(String word) {
+		        TrieNode ws = root;
+		        for(int i = 0; i < word.length(); i++){
+		            char c = word.charAt(i);
+		            if(ws.children[c - 'a'] == null){
+		                ws.children[c - 'a'] = new TrieNode(c);
+		            }
+		            ws = ws.children[c - 'a'];
+		        }
+		        ws.isWord = true;
+		    }
+
+		    public boolean search(String word) {
+		        TrieNode ws = root; 
+		        for(int i = 0; i < word.length(); i++){
+		            char c = word.charAt(i);
+		            if(ws.children[c - 'a'] == null) return false;
+		            ws = ws.children[c - 'a'];
+		        }
+		        return ws.isWord;
+		    }
+
+		    public boolean startsWith(String prefix) {
+		        TrieNode ws = root; 
+		        for(int i = 0; i < prefix.length(); i++){
+		            char c = prefix.charAt(i);
+		            if(ws.children[c - 'a'] == null) return false;
+		            ws = ws.children[c - 'a'];
+		        }
+		        return true;
+		    }
+		}
+
+- Time Complexity:
+	 - Search/Insert/Delete: O(an)	//a = length of longest word, n = number of words
+	 - Prefix Lookup: O(a)			//a = length of word
+	 - Worst Case Runtime: O(mn)	//m = length of longest word, n = number of words
+- Notes: 
+	 - Root node is empty
+	 - Add [* nodes (null nodes)/or set a value]  at end of each word
+	 - Each node has 26 children (even if they're not used)
+	 - Size of trie is directly correlated to alphabet used
+	 - Null nodes take up space (a lot!). 26 children nodes per node
 
 ## TOOLS
 ### Arrays
