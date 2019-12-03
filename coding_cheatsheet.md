@@ -85,6 +85,28 @@
 	 - Find shortest path between two nodes
 - Code Example:
 
+		public static <T> Optional<Node<T>> search(T value, Node<T> start) {
+		    Queue<Node<T>> queue = new ArrayDeque<>();
+		    queue.add(start);
+		 
+		    Node<T> currentNode;
+		 
+		    while (!queue.isEmpty()) {
+			    currentNode = queue.remove();
+			    LOGGER.info("Visited node with value: {}", currentNode.getValue());
+			 
+			    if (currentNode.getValue().equals(value)) {
+			        return Optional.of(currentNode);
+			    } else {
+			        alreadyVisited.add(currentNode);
+			        queue.addAll(currentNode.getNeighbors());
+			        queue.removeAll(alreadyVisited);
+			    }
+			}
+		 
+		    return Optional.empty();
+		}
+		
 - Time Complexity:
 	- O(|V| + |E|)
 - Notes:
@@ -132,8 +154,6 @@
 	 - 
 
 
-
-
 ### Hash Map
 - Use Case:
 	- Count frequency of an element
@@ -164,15 +184,15 @@
 - Code Example:
 	- Min Heap:
 
-			PriorityQueue<Integer> minHeap = new PriorityQueue();
+		PriorityQueue<Integer> minHeap = new PriorityQueue();
 
 	- Max Heap:
 
-			PriorityQueue<Integer> minHeap = new PriorityQueue(Collections.reverseOrder());
-			.add(i);				//adds i
-			.size();				//returns size of heap
-			.remove();				//removes root, returns element
-			.peek();				//returns root element
+		PriorityQueue<Integer> minHeap = new PriorityQueue(Collections.reverseOrder());
+		.add(i);				//adds i
+		.size();				//returns size of heap
+		.remove();				//removes root, returns element
+		.peek();				//returns root element
 
 - Time Complexity:
 	- Time 	O(n)				//to build
@@ -188,15 +208,15 @@
 - Code Example:
 	- Iterate single linkelist:
 
-			ListNode prev = null;
-			ListNode curr = head;
-			while (curr != null) {
-	        ListNode nextTemp = curr.next;
-	        curr.next = prev;
-	        prev = curr;
-	        curr = nextTemp;
-			}
-			return prev;
+		ListNode prev = null;
+		ListNode curr = head;
+		while (curr != null) {
+        ListNode nextTemp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nextTemp;
+		}
+		return prev;
 
 - Time Complexity:
 	- Iterate: O(n)
@@ -213,6 +233,13 @@
 
 
 ### Queue
+- Code Examples:
+
+		Queue<Integer> q = new LinkedList<>();
+		q.add(e);			//Inserts element and returns true iff it was successfull
+		q.peek();			//Returns, but doesn't remove head of queue. Returns null, if queue empty
+		q.poll();			//Returns, and removes head of queue. Returns null, if queue empty
+
 - Time Complexity:
 	- Access: O(n)
 	- Search: O(n)
@@ -223,6 +250,15 @@
 ### Stack
 - Use Case
 	- brackets
+- Code Example:
+
+		Stack<Integer> s = new Stack<Integer>();
+		s.empty();			//Returns true if stack empty
+		s.peek();			//Returns object at top of stack without removing it
+		s.pop();			//Returns object at top of stack and removes it
+		s.push();			//Pushes item to top of stack and returns it
+		s.search();			//Returns position in stack from bottom to top. Returns -1 if not found
+
 - Time Complexity
 	- Access: O(n)
 	- Search: O(n)
@@ -233,7 +269,8 @@
 ### Trees
 #### •Breadth First Search
 - Code Example:
-
+		
+		//Iterative version
         Queue<Node> queue = new LinkedList<Node>(); 
         queue.add(root); 
         while (!queue.isEmpty())  
@@ -257,7 +294,7 @@
 	 - Postorder: Delete tree
 - Code Example:
 		
-		//Recursive
+		//Recursive version
 		void dfs(Node n){
 			if(n == null)
 				return;
@@ -266,6 +303,68 @@
 			//do inorder: root node first
 			dfs(n.left);
 			//do postorder: right node first
+		}
+
+		//Iterative versions
+		public void traversePreOrderWithoutRecursion() {
+		    Stack<Node> stack = new Stack<Node>();
+		    Node current = root;
+		    stack.push(root);
+		    while(!stack.isEmpty()) {
+		        current = stack.pop();
+		        visit(current.value);
+		         
+		        if(current.right != null) {
+		            stack.push(current.right);
+		        }    
+		        if(current.left != null) {
+		            stack.push(current.left);
+		        }
+		    }        
+		}
+
+		public void traverseInOrderWithoutRecursion() {
+		    Stack<Node> stack = new Stack<Node>();
+		    Node current = root;
+		    stack.push(root);
+		    while(! stack.isEmpty()) {
+		        while(current.left != null) {
+		            current = current.left;                
+		            stack.push(current);                
+		        }
+		        current = stack.pop();
+		        visit(current.value);
+		        if(current.right != null) {
+		            current = current.right;                
+		            stack.push(current);
+		        }
+		    }
+		}
+
+		public void traversePostOrderWithoutRecursion() {
+		    Stack<Node> stack = new Stack<Node>();
+		    Node prev = root;
+		    Node current = root;
+		    stack.push(root);
+		 
+		    while (!stack.isEmpty()) {
+		        current = stack.peek();
+		        boolean hasChild = (current.left != null || current.right != null);
+		        boolean isPrevLastChild = (prev == current.right || (prev == current.left && current.right == null));
+		 
+		        if (!hasChild || isPrevLastChild) {
+		            current = stack.pop();
+		            visit(current.value);
+		            prev = current;
+		        } else {
+		            if (current.right != null) {
+		                stack.push(current.right);
+		            }
+		            if (current.left != null) {
+		                stack.push(current.left);
+		            }
+		        }
+		    }   
 		}
 
  - Time Complexity:
