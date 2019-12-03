@@ -31,14 +31,14 @@
 		
 		method( int num, int i )
 
-		//Get Bit = 
+		//Get Bit = returns true if bit@i = 1; else false
 		return ( (num & (1 << i) ) != 0 );
 
-		//Set Bit = 
+		//Set Bit = sets bit@i = 1; returns new number
 		return num | (1 << i);
 
-		//Clear Bit = 
-		return num & ( ~(1 << i) )
+		//Clear Bit = set bit@i = 0; returns new number
+		return (num & (( ~(1 << i)) ));
 
 - Notes:
 	- ^ = XOR = eXclusive OR = only 1 when different bits
