@@ -6,7 +6,7 @@
 
 ### Binary Search
 - Use Case:
-	- Sorted Array
+	- Find elemnt in sorted array
 - Code Example:
 
 		int l = 0, r = arr.length - 1; 
@@ -26,7 +26,7 @@
 
 ### Bit Manipulation
 - Use Case:
-	- 2^n multiplications/divitions
+	- multiplications/divitions involving multiples of 2
 - Code Example:
 		
 		method( int num, int i )
@@ -43,6 +43,7 @@
 - Notes:
 	- ^ = XOR = eXclusive OR = only 1 when different bits
 	- ~ = NOT = negation = opposite of current bits
+	- signed integer = when integer right digit = 
 	- 2's Comp = For positive numbers, left bit=0; other bits same
 				 For negative numbers, left bit=1; write absolute value in bits; NOT bits; add 1 bit;
 	- >> 1 = Shift all bits 1 space to right = / 2
@@ -184,22 +185,28 @@
 ### Hash Map
 - Use Case:
 	- Count frequency of an element
+	- Leverage finding in unsorted arrays
 - Code Example:
 
 		Map<Integer, Integer> hash = new HashMap();
+		.clear()				//removes all mappings in map
+		.containsKey(k)			//returns true if key exists
+		.containsValue(v)		//returns true if value exists 
+		.get(k)					//returns value of specified key, else null
+		.getOrDefault(k, v)		//if value is assigned, returns value; //else, returns v	
+		.isEmpty()				//return true if empty
 		.put(k, v)				//inserts key and value
 		.putIfAbsent(k, v)		//if key doesn't exist, inserts key and value //else nothing
-		.get(k)					//returns value of specified key
-		.getOrDefault(k, v)		//if value is assigned, returns value; //else, returns v
-		.size()					//returns size of hashmap
 		.remove(k)				//removes the value mapped to k, returns value
+		.size()					//returns int size of hashmap
 		.values()				//iterate by doing for(int val:map.values())
 
 - Time Complexity:
-	- Time	O(1)			//to look for values
+	- Time		O(1)			//to look for values
 	- Memory	O(n)			//elements inserted
 - Notes
 	- key = ra[index]; value = index
+	- Most cases, check containsKey and then put
 
 
 ### Heaps
@@ -222,26 +229,26 @@
 		.peek();				//returns root element
 
 - Time Complexity:
-	- Time 	O(n)				//to build
+	- Time:				O(n)			//to build
 	- Access Max / Min: O(1)
-	- Insert: O(log(n))
+	- Insert: 			O(log(n))
 	- Remove Max / Min: O(log(n))
-	- Memory	O(n)			//elements inserted
+	- Memory:			O(n)			//elements inserted
 - Notes
 	- Element you want to return needs to be at root
 
 
 ### LindkedList
 - Code Example:
-	- Iterate single linkelist:
-
+		
+		//Iterate single linkelist
 		ListNode prev = null;
 		ListNode curr = head;
 		while (curr != null) {
-        ListNode nextTemp = curr.next;
-        curr.next = prev;
-        prev = curr;
-        curr = nextTemp;
+	        ListNode nextTemp = curr.next;
+	        curr.next = prev;
+	        prev = curr;
+	        curr = nextTemp;
 		}
 		return prev;
 
@@ -406,6 +413,7 @@
 ### Tries
 - Use Case:
 	 - Word/prefix lookups
+	 - Longest Common Prefix
 - Code Example:
 
 		class TrieNode {
@@ -480,6 +488,8 @@
 - YES! 	`int a[]; 	if(a == null)`
 - `a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign`
 - `Integer.valueOf(str);								//converts numbers in string to int(only works for string of numbers)`
+- `Integer.MAX_VALUE = 2^31-1`
+- `Integer.MIN_VALUE = -2^31`
 
 ### Math
 - `Math.abs(x);`
@@ -488,11 +498,24 @@
 
 ### String
 - `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
-- `str.indexOf('x');									//returns index of char in string`
+- `str.indexOf('xyz');									//returns index of string in string`
 - `str.contains('x');									//returns boolean depending if string has character inside`
 - `str.length();										//returns lenght of string`
 - `str.substring(6);									//returns substring after index (including)`
-- `str.substring(0, 6);								//returns substring in between those indices (excluding last index)`
+- `str.substring(0, 6);									//returns substring in between those indices (excluding last index)`
+
+### StringBuilder
+- `StringBuilder str = new StringBuilder(i);			//initialize StringBuilder with i space; can create without i`
+- `str.append(c);										//can append char, string, int representation, etc`
+- `str.capacity();										//return current capacity`
+- `str.charAt(i);										//return char value at index i`
+- `str.delete(int l, int r);							//removes substring from index l to index r`
+- `str.length();										//returns length`
+- `str.replace(int l, int r, String strng);				//replaces characters from index l to index r with strng`
+- `str.reverse();										//string gets replaced with reverse`
+- `str.setCharAt(int i, char c);						//set character c at index i`
+- `str.substring(int l, int r);							//return substring from index l to index r`
+- `str.toString();										//return string representation of str`
 
 
 ## EXTRAS
