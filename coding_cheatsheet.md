@@ -182,13 +182,13 @@
 	 - 
 
 
-### Hash Map
+### HashMap
 - Use Case:
 	- Count frequency of an element
 	- Leverage finding in unsorted arrays
 - Code Example:
 
-		Map<Integer, Integer> hash = new HashMap();
+		Map<Integer, Integer> hashmap = new HashMap();
 		.clear()				//removes all mappings in map
 		.containsKey(k)			//returns true if key exists
 		.containsValue(v)		//returns true if value exists 
@@ -207,6 +207,20 @@
 - Notes
 	- key = ra[index]; value = index
 	- Most cases, check containsKey and then put
+
+### HashSet
+- Use Case:
+	- Have unique
+- Code Example:
+
+		Set<Integer> hashset = new HashSet();
+		.add(e)					//inserts element into hashset
+		.clear()				//removes all elements of hashset
+		.contains(o)			//returns true if element is in hashset
+		.isEmpty()				//returns true if empty
+		.remove(o)				//removes value from hashset, returns true if element was in set 
+		.size()					//returns intsize of hashset
+
 
 
 ### Heaps
@@ -238,10 +252,10 @@
 	- Element you want to return needs to be at root
 
 
-### LindkedList
+### LinkedList
 - Code Example:
 		
-		//Iterate single linkelist
+		//reverse singly linkedlist
 		ListNode prev = null;
 		ListNode curr = head;
 		while (curr != null) {
@@ -264,6 +278,7 @@
 	- Recursive: O(n)
 - Notes:
 	- Remember to use 3 pointers and move iteratively!
+	- IMPORTANT: You can have a linkedlist with different pointers and return a different part depending on which pointer you return
 
 
 ### Queue
@@ -482,6 +497,8 @@
 ### Arrays
 - `Arrays.sort(array)										//Time O(nlogn)`
 - `Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda`
+- Notes
+	 - Array can be null or empty
 
 ### int
 - NOO! 	`int a; 		if(a == null)`
@@ -498,11 +515,15 @@
 
 ### String
 - `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
-- `str.indexOf('xyz');									//returns index of string in string`
+- `str.indexOf('str');									//returns index of string(or char) in string`
 - `str.contains('x');									//returns boolean depending if string has character inside`
 - `str.length();										//returns lenght of string`
 - `str.substring(6);									//returns substring after index (including)`
 - `str.substring(0, 6);									//returns substring in between those indices (excluding last index)`
+- `str.startsWtih('str')								//returns boolean of string(or char`
+- `str.toCharArray()									`
+- Notes
+	 - Strings can be null or empty
 
 ### StringBuilder
 - `StringBuilder str = new StringBuilder(i);			//initialize StringBuilder with i space; can create without i`
