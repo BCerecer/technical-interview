@@ -316,7 +316,7 @@
 
 
 ### Trees
-#### •Breadth First Search
+#### •Breadth First Search (Level Order Traversal)
 - Code Example:
 		
 		//Iterative version
@@ -350,7 +350,7 @@
 			//do preorder: left node first
 			dfs(n.left);
 			//do inorder: root node first
-			dfs(n.left);
+			dfs(n.right);
 			//do postorder: right node first
 		}
 
@@ -508,6 +508,11 @@
 - `Integer.MAX_VALUE = 2^31-1`
 - `Integer.MIN_VALUE = -2^31`
 
+### Interfaces
+- `Queue<String> test = new LinkedList<String>();`
+- `List<String> test2 = new LinkedList<String>();`
+- In this example, there are 2 LinkedList objects implementing different interfaces. Therefore, each object will have different methods depending on the interface they're implementing.
+
 ### Math
 - `Math.abs(x);`
 - `Math.max(x, y);`
@@ -517,10 +522,11 @@
 - `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
 - `str.indexOf('str');									//returns index of string(or char) in string`
 - `str.contains('x');									//returns boolean depending if string has character inside`
+- `str.isEmpty();										//`
 - `str.length();										//returns lenght of string`
 - `str.substring(6);									//returns substring after index (including)`
 - `str.substring(0, 6);									//returns substring in between those indices (excluding last index)`
-- `str.startsWtih('str')								//returns boolean of string(or char`
+- `str.startsWtih('str')								//returns boolean of string(or char)`
 - `str.toCharArray()									`
 - Notes
 	 - Strings can be null or empty
@@ -531,6 +537,7 @@
 - `str.capacity();										//return current capacity`
 - `str.charAt(i);										//return char value at index i`
 - `str.delete(int l, int r);							//removes substring from index l to index r`
+- `str.insert(int i, str);								//insert str/char at i`
 - `str.length();										//returns length`
 - `str.replace(int l, int r, String strng);				//replaces characters from index l to index r with strng`
 - `str.reverse();										//string gets replaced with reverse`
