@@ -497,6 +497,7 @@
 ### Arrays
 - `Arrays.sort(array)										//Time O(nlogn)`
 - `Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda`
+- `Arrays.sort(ra, (a,b) -> (Integer.compare(a, b)))//Orders depending of comparison`
 - Notes
 	 - Array can be null or empty
 
@@ -504,14 +505,23 @@
 - NOO! 	`int a; 		if(a == null)`
 - YES! 	`int a[]; 	if(a == null)`
 - `a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign`
-- `Integer.valueOf(str);								//converts numbers in string to int(only works for string of numbers)`
+- `Integer.valueOf(str);								//converts numbers in string to Integer(only for string of numbers)`
+- `Integer.valueOf(int);								//converts primitive to Integers`
+- `int i = IntegerObjectName.intValue();				//converts Integer object to int primitive`
 - `Integer.MAX_VALUE = 2^31-1`
 - `Integer.MIN_VALUE = -2^31`
 
 ### Interfaces
 - `Queue<String> test = new LinkedList<String>();`
 - `List<String> test2 = new LinkedList<String>();`
-- In this example, there are 2 LinkedList objects implementing different interfaces. Therefore, each object will have different methods depending on the interface they're implementing.
+- In this example, there are 2 LinkedList objects implementing different interfaces. Therefore, each object will have different methods depending on the interface they're implementing
+
+### Lambda
+- Lambdas are function that don't belong to a class and can be pass to methods as if it was an object
+- `doubleValue = (int a) -> a*2;						//since it's a one line return can be ommitted`
+- `doubleValue = (int a) ->  {
+		return a*2;										//same as the inline lambda above
+	};`
 
 ### Math
 - `Math.abs(x);`
