@@ -497,9 +497,24 @@
 ### Arrays
 - `Arrays.sort(array)										//Time O(nlogn)`
 - `Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda`
-- `Arrays.sort(ra, (a,b) -> (Integer.compare(a, b)))//Orders depending of comparison`
+- `Arrays.sort(ra, (a,b) -> (Integer.compare(a, b)))		//Orders depending of comparison`
 - Notes
 	 - Array can be null or empty
+
+### ArrayList
+- `ArrayList<Type> str = new ArrayList<Type>()				//Dynamic array`
+- `					  .add(o)								//Adds element`
+- `					  .add(int i, o)						//Adds element at index i`
+- `					  .clear()								//Removes all elements from list`
+- `					  .contains(o) 							//Returns true if element in list`
+- `					  .get(int i)							//Returns element at index i`
+- `					  .indexOf(o)							//Returns index i of first occurence of element`
+- `					  .isEmpty()							//Returns true if list has no elements`
+- `					  .lastIndexOf(o)						//Returns index i of last occurence of element`
+- `					  .remove(o)							//Removes first occurrence of element and returns boolean`
+- `					  .set(int i, o)						//Replaces element at i with new element`
+- `					  .size()								//Returns number of elements in list`
+- `					  .toArray()							//Returns array of elements in proper order`
 
 ### int
 - NOO! 	`int a; 		if(a == null)`
