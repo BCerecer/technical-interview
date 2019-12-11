@@ -286,8 +286,9 @@
 
 		Queue<Integer> q = new LinkedList<>();
 		q.add(e);			//Inserts element and returns true iff it was successfull
-		q.peek();			//Returns, but doesn't remove head of queue. Returns null, if queue empty
-		q.poll();			//Returns, and removes head of queue. Returns null, if queue empty
+		q.peek();			//Returns head of queue but doesn't remove head of queue. Returns null, if queue empty
+		q.poll();			//Returns head of queue and removes head of queue. Returns null, if queue empty
+		q.size();			//Returns size
 
 - Time Complexity:
 	- Access: O(n)
@@ -324,7 +325,7 @@
         queue.add(root); 
         while (!queue.isEmpty())  
         { 
-            Node current = queue.remove(); 
+            Node current = queue.poll(); 
             //do
             if (current.left != null)
                 queue.add(current.left); 
@@ -502,7 +503,7 @@
 	 - Array can be null or empty
 
 ### ArrayList
-- `ArrayList<Type> str = new ArrayList<Type>()				//Dynamic array`
+- `List<Type> str = new ArrayList<Type>()				//Dynamic array`
 - `					  .add(o)								//Adds element`
 - `					  .add(int i, o)						//Adds element at index i`
 - `					  .clear()								//Removes all elements from list`
@@ -526,10 +527,13 @@
 - `Integer.MAX_VALUE = 2^31-1`
 - `Integer.MIN_VALUE = -2^31`
 
-### Interfaces
+### List
 - `Queue<String> test = new LinkedList<String>();`
 - `List<String> test2 = new LinkedList<String>();`
+- `raString[i] = raList.get(i);							//to copy raList to array`
+
 - In this example, there are 2 LinkedList objects implementing different interfaces. Therefore, each object will have different methods depending on the interface they're implementing
+- List is a reference type so when you pass myPassedList as an argument to doSomething you are modifying the original list //NOT 100% sure
 
 ### Lambda
 - Lambdas are function that don't belong to a class and can be pass to methods as if it was an object
@@ -552,7 +556,10 @@
 - `str.substring(6);									//returns substring after index (including)`
 - `str.substring(0, 6);									//returns substring in between those indices (excluding last index)`
 - `str.startsWtih('str')								//returns boolean of string(or char)`
+- `str.split()`
 - `str.toCharArray()									`
+- `str.trim()											//returns str with beginning and end whitespaces`
+- `str.valueOf(int)										//returns string representation of int`
 - Notes
 	 - Strings can be null or empty
 
@@ -566,6 +573,7 @@
 - `str.length();										//returns length`
 - `str.replace(int l, int r, String strng);				//replaces characters from index l to index r with strng`
 - `str.reverse();										//string gets replaced with reverse`
+- `String[] raStr = str.split(" ");						//splits String by space and put it in ra"`
 - `str.setCharAt(int i, char c);						//set character c at index i`
 - `str.substring(int l, int r);							//return substring from index l to index r`
 - `str.toString();										//return string representation of str`
