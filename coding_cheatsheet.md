@@ -496,6 +496,7 @@
 
 ## TOOLS
 ### Arrays
+- `Arrays.fill(ra, value)									//fills every element of ra with given value`
 - `Arrays.sort(array)										//Time O(nlogn)`
 - `Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda`
 - `Arrays.sort(ra, (a,b) -> (Integer.compare(a, b)))		//Orders depending of comparison`
@@ -558,7 +559,9 @@
 - `str.startsWtih('str')								//returns boolean of string(or char)`
 - `str.split()`
 - `str.toCharArray()									`
-- `str.trim()											//returns str with beginning and end whitespaces`
+- `str.toUpperCase()									`
+- `str.toLowerCase()									`
+- `str.trim()											//returns str without beginning and end whitespaces`
 - `str.valueOf(int)										//returns string representation of int`
 - Notes
 	 - Strings can be null or empty
