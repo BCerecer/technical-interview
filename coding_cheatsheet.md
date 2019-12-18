@@ -2,6 +2,10 @@
 
 ## TECHNIQUES/ALGORITHMS
 ### Backtrack
+- Definition:
+	- Use recursion in order to explore all the possibilities until you get the best result for the problem
+- Use Case:
+	- When need to explore different possibilities. Choose, Explore, Undo
 
 
 ### Binary Search
@@ -54,6 +58,7 @@
 
 ### Dynamic Programing
 - Use Case:
+	 - Optimize, MINIMIZE/MAXIMIZE
 	 - When pattern involves result of previous result
 	 - Overlapping subproblems
 - Notes
@@ -194,7 +199,8 @@
 		.containsValue(v)		//returns true if value exists 
 		.get(k)					//returns value of specified key, else null
 		.getOrDefault(k, v)		//if value is assigned, returns value; //else, returns v	
-		.isEmpty()				//return true if empty
+		.isEmpty()				//returns true if empty
+		.keySet()				//returns set of key, you can do for each in this set
 		.put(k, v)				//inserts key and value
 		.putIfAbsent(k, v)		//if key doesn't exist, inserts key and value //else nothing
 		.remove(k)				//removes the value mapped to k, returns value
@@ -348,20 +354,19 @@
 		void dfs(Node n){
 			if(n == null)
 				return;
-			//do preorder: left node first
+			//do preorder: Root, Left, Right
 			dfs(n.left);
-			//do inorder: root node first
+			//do inorder: Left, Root, Right
 			dfs(n.right);
-			//do postorder: right node first
+			//do postorder: Left, Right, Root
 		}
 
 		//Iterative versions
 		public void traversePreOrderWithoutRecursion() {
 		    Stack<Node> stack = new Stack<Node>();
-		    Node current = root;
 		    stack.push(root);
 		    while(!stack.isEmpty()) {
-		        current = stack.pop();
+		        Node current = stack.pop();
 		        visit(current.value);
 		         
 		        if(current.right != null) {
@@ -374,47 +379,37 @@
 		}
 
 		public void traverseInOrderWithoutRecursion() {
-		    Stack<Node> stack = new Stack<Node>();
-		    Node current = root;
-		    stack.push(root);
-		    while(! stack.isEmpty()) {
-		        while(current.left != null) {
-		            current = current.left;                
-		            stack.push(current);                
-		        }
-		        current = stack.pop();
-		        visit(current.value);
-		        if(current.right != null) {
-		            current = current.right;                
-		            stack.push(current);
-		        }
-		    }
+		    Stack<TreeNode> s = new Stack();
+	        TreeNode current = root;
+	        while(current != null || !s.isEmpty()){
+	            while(current != null){
+	                s.push(current);
+	                current = current.left;
+	            }
+	            current = s.pop();
+	            answer.add(current.val);
+	            current = current.right()
+	        }
 		}
 
 		public void traversePostOrderWithoutRecursion() {
-		    Stack<Node> stack = new Stack<Node>();
-		    Node prev = root;
-		    Node current = root;
-		    stack.push(root);
-		 
-		    while (!stack.isEmpty()) {
-		        current = stack.peek();
-		        boolean hasChild = (current.left != null || current.right != null);
-		        boolean isPrevLastChild = (prev == current.right || (prev == current.left && current.right == null));
-		 
-		        if (!hasChild || isPrevLastChild) {
-		            current = stack.pop();
-		            visit(current.value);
-		            prev = current;
-		        } else {
-		            if (current.right != null) {
-		                stack.push(current.right);
-		            }
-		            if (current.left != null) {
-		                stack.push(current.left);
-		            }
+		    Stack<TreeNode> s = new Stack<TreeNode>();
+		    Stack<TreeNode> out = new Stack<TreeNode>();
+		    s.push(root);
+		    while (!s.isEmpty()) {
+		        TreeNode current = s.pop();
+		        out.push(current);
+		        if (current.left != null) {
+		            s.push(cur.left);
 		        }
-		    }   
+		        if (current.right != null) {
+		            s.push(cur.right);
+		        }
+		    }
+
+		    while (!out.isEmpty()) {
+		        visit(current.value);
+		    }  
 		}
 
  - Time Complexity:
@@ -527,6 +522,7 @@
 - `int i = IntegerObjectName.intValue();				//converts Integer object to int primitive`
 - `Integer.MAX_VALUE = 2^31-1`
 - `Integer.MIN_VALUE = -2^31`
+- `num.toString()										//returns String representation of Integer`
 
 ### List
 - `Queue<String> test = new LinkedList<String>();`
@@ -592,4 +588,15 @@
 - #### Floyd-Warshall Algorithm
 - #### Prim's Algorithm
 - #### Kruskal's Algorithm
+
+## TIPS
+
+### Matrix Problems
+- BFS = Shortest path. Might need to create nodes that have attributes x,y,dist and a matrix of visited. Use queue
+- DFS = Find max area, all paths. Use recursion
+- DP = If it involves number
+
+### Caution 
+- Be careful when sending LinkedList and matrix (int[][]) to methods because they modify the one you sent without return it
+- Be careful with LinkedList when use iteratively because they are like pointers
 
