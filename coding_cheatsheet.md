@@ -5,7 +5,21 @@
 - Definition:
 	- Use recursion in order to explore all the possibilities until you get the best result for the problem
 - Use Case:
-	- When need to explore different possibilities. Choose, Explore, Undo
+	- Permutation/Combinations/Subsets to find all solutions possible being able to have different starts 
+	- When need to explore different possibilities. Choose, Check, Undo
+- Code Example:
+
+		private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, int remain, int start){
+		    if(remain < 0) return;										//check
+		    else if(remain == 0) list.add(new ArrayList<>(tempList));	//check
+		    else{ 
+		        for(int i = start; i < nums.length; i++){				//choose
+		            tempList.add(nums[i]);
+		            backtrack(list, tempList, nums, remain - nums[i], i); // not i + 1 because we can reuse same elements
+		            tempList.remove(tempList.size() - 1);				//undo
+		        }
+		    }
+		}
 
 
 ### Binary Search
@@ -72,6 +86,8 @@
 
 
 ### Recursion
+- Use Case:
+	- Permutations/Combinations to find solutions starting always from the same beginnning 
 
 
 ### Two Pointers (sliding window)
@@ -247,6 +263,16 @@
 		.size();				//returns size of heap
 		.remove();				//removes root, returns element
 		.peek();				//returns root element
+
+	- Custom Order:
+
+		PriorityQueue<Temp> pq = new PriorityQueue<>(new Comparator<Temp>() {
+        	public int compare(Temp t1, Temp t2) {
+                return t2.temperature - t1.temperature;
+            }
+        });
+        
+
 
 - Time Complexity:
 	- Time:				O(n)			//to build
@@ -513,6 +539,10 @@
 - `					  .size()								//Returns number of elements in list`
 - `					  .toArray()							//Returns array of elements in proper order`
 
+### Character
+- `Character.isDigit(char)								//returns true if it is`
+- `Character.isLetter(char)								//returns true if it is`
+
 ### int
 - NOO! 	`int a; 		if(a == null)`
 - YES! 	`int a[]; 	if(a == null)`
@@ -590,6 +620,9 @@
 - #### Kruskal's Algorithm
 
 ## TIPS
+
+### Combination/Permutation
+- Usually involves recursion. A problem that can be solved with recursion can be solved iteratively. 
 
 ### Matrix Problems
 - BFS = Shortest path. Might need to create nodes that have attributes x,y,dist and a matrix of visited. Use queue
