@@ -21,6 +21,8 @@
 		    }
 		}
 
+- Notes: 
+	- Sort array for permutations/combinations/subsets before sending it to helper method
 
 ### Binary Search
 - Use Case:
@@ -71,12 +73,48 @@
 
 
 ### Dynamic Programing
+- Definition:
+	 - Tabulation: Bottom Up
+	 - Memoization: Top Down
 - Use Case:
-	 - Optimize, MINIMIZE/MAXIMIZE
+	 - Optimization, MINIMIZE/MAXIMIZE
 	 - When pattern involves result of previous result
 	 - Overlapping subproblems
+- Code:
+
+		//Tabulation:
+		int fib(int n) { 
+		    int f[] = new int[n+1]; 
+		    f[0] = 0; 
+		    f[1] = 1; 
+		    for (int i = 2; i <= n; i++) {
+				f[i] = f[i-1] + f[i-2]; 
+			}
+		    return f[n]; 
+		}
+
+		//Memoization:
+		public static long fibArray[]=new long[26];
+		public static long fibonacci(long n) {
+			long fibValue=0;
+			if(n==0 ) {
+				return 0;
+			} else if (n==1) {
+				return 1;
+			} else if (fibArray[(int)n]!=0){
+				return fibArray[(int)n];
+			} else {
+				fibValue=fibonacci(n-1)+fibonacci(n-2);
+				fibArray[(int) n]=fibValue;
+				return fibValue;
+			}
+		}
+
 - Notes
 	 - Design for simple scenario, once it works test on complex
+	 - Dynamic programming is used to solve problems that can be solved using recursion. The trick is that it leverages call stacks by using memory(array)
+	 - Tabulation is more optimal, however, harder to come up with
+	 - Memoization is recursive
 
 
 ### Greedy Algorithms
@@ -543,6 +581,13 @@
 - `Character.isDigit(char)								//returns true if it is`
 - `Character.isLetter(char)								//returns true if it is`
 
+### double
+- Double.compare(double1, double2). You pass two doubles and returns 0 if they equal, -1 if the first is smaller, or 1 if the first is greater.
+- `if (Double.compare(double1, double2) == 0)			//equals`
+- `if (Double.compare(d1, d2) < 0)						//d1<d2`
+- `if (Double.compare(d1, d2) > 0)						//d1>d2`
+
+
 ### int
 - NOO! 	`int a; 		if(a == null)`
 - YES! 	`int a[]; 	if(a == null)`
@@ -573,6 +618,9 @@
 - `Math.abs(x);`
 - `Math.max(x, y);`
 - `Math.min(x, y);`
+
+### Objects
+- Objects are passed to other functions as pointers so it can be modified without being return. The only exception is that you can't tell the pointer to point another object. Can only modify original!
 
 ### String
 - `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
