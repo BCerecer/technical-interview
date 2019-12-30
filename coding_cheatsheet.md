@@ -61,11 +61,13 @@
 		return (num & (( ~(1 << i)) ));
 
 - Notes:
+	- & = AND = when both are 1, result is 1
+	- | =  OR = if 1 of them is 1, result is 1
 	- ^ = XOR = eXclusive OR = only 1 when different bits
 	- ~ = NOT = negation = opposite of current bits
 	- signed integer = when integer right digit = 
 	- 2's Comp = For positive numbers, left bit=0; other bits same
-				 For negative numbers, left bit=1; write absolute value in bits; NOT bits; add 1 bit;
+				 For negative numbers, left bit=1; write absolute value in bits; NOT bits; add 1 bit; `~n+1`
 	- >> 1 = Shift all bits 1 space to right = / 2
 	- >> 2 = Shift all bits 2 space to right = / 4
 	- << 3 = Shift all bits 3 space to right = * 8
@@ -77,9 +79,13 @@
 	 - Tabulation: Bottom Up
 	 - Memoization: Top Down
 - Use Case:
-	 - Optimization, MINIMIZE/MAXIMIZE
+	 - Optimization, MINIMIZE/MAXIMIZE 		- Math.min/max
+	 - Distinct ways						- += dp[i-1] + 1 
+	 - Merging intervals
+	 - DP on String
+	 - Decision Making
 	 - When pattern involves result of previous result
-	 - Overlapping subproblems
+	 - Problem can be divided into subproblems
 - Code:
 
 		//Tabulation:
@@ -122,6 +128,92 @@
 - Use Case:
 	- Optimal local solution
 
+
+### KMP Algorithm - Knuth Morris Pratt
+- Use Case:
+	- Pattern searching in strings
+- Steps: 
+	1. Preprocess pattern string and create longest prefix that is also suffix (lps) int array that has same size as pattern. This will be used to skip characters while matching. Whole string can't be considered longest prefix/suffix.
+	2. Populate lps. First, lps[0] = 0 and have a int length of previous longest prefix/suffix. Then, while loop from int i = 1 to i < lps length. Len will always be smaller than i. If charAt(i) == charAr(len), len++, set lps[i] = len, i++. Else, if, len!=0 back len to the len of previous character len = lps[len-1]. Else (len==0), lps[i]=len(0), i++.
+	3. Start the KMPSearch. Have two pointers i and j starting at 0. i will be the index for the txt and j will be for patt. Loop while i < txt.length. If txt.charAt(i)==pat.charAt(j), increment both pointers. If j == M, that means we went though the whole pattern string and we have a match at i-j, also set j = lps[j-1] to skip comparing the patt from beginning(that way we start after prefix). Else if, i<N (to avoid null pointer) && patt.charAt(j) != txt.charAt(i), If j!=0, j=lps[j-1]]. Else, i++.
+	4.	
+- Code:
+
+	    void KMPSearch(String pat, String txt) 
+	    { 
+	        int M = pat.length(); 
+	        int N = txt.length(); 
+	  
+	        // create lps[] that will hold the longest 
+	        // prefix suffix values for pattern 
+	        int lps[] = new int[M]; 
+	        int j = 0; // index for pat[] 
+	  
+	        // Preprocess the pattern (calculate lps[] 
+	        // array) 
+	        computeLPSArray(pat, M, lps); 
+	  
+	        int i = 0; // index for txt[] 
+	        while (i < N) { 
+	            if (pat.charAt(j) == txt.charAt(i)) { 
+	                j++; 
+	                i++; 
+	            } 
+	            if (j == M) { 
+	                System.out.println("Found pattern " + "at index " + (i - j)); 
+	                j = lps[j - 1]; 
+	            } 
+	  
+	            // mismatch after j matches 
+	            else if (i < N && pat.charAt(j) != txt.charAt(i)) { 
+	                // Do not match lps[0..lps[j-1]] characters, 
+	                // they will match anyway 
+	                if (j != 0) 
+	                    j = lps[j - 1]; 
+	                else
+	                    i = i + 1; 
+	            } 
+	        } 
+	    } 
+	  
+	    void computeLPSArray(String pat, int M, int lps[]) 
+	    { 
+	        // length of the previous longest prefix suffix 
+	        int len = 0; 
+	        int i = 1; 
+	        lps[0] = 0; // lps[0] is always 0 
+	  
+	        // the loop calculates lps[i] for i = 1 to M-1 
+	        while (i < M) { 
+	            if (pat.charAt(i) == pat.charAt(len)) { 
+	                len++; 
+	                lps[i] = len; 
+	                i++; 
+	            } 
+	            else // (pat[i] != pat[len]) 
+	            { 
+	                // This is tricky. Consider the example. 
+	                // AAACAAAA and i = 7. The idea is similar 
+	                // to search step. 
+	                if (len != 0) { 
+	                    len = lps[len - 1]; 
+	  
+	                    // Also, note that we do not increment 
+	                    // i here 
+	                } 
+	                else // if (len == 0) 
+	                { 
+	                    lps[i] = len; 
+	                    i++; 
+	                } 
+	            } 
+	        } 
+	    } 
+
+- Time Complexity:
+	- O(n)
+- Space Complexity:
+	- O(n)
 
 ### Recursion
 - Use Case:
@@ -576,6 +668,8 @@
 - `					  .set(int i, o)						//Replaces element at i with new element`
 - `					  .size()								//Returns number of elements in list`
 - `					  .toArray()							//Returns array of elements in proper order`
+`List<int[]> result = new ArrayList<>();   
+result.toArray(new int[result.size()][]);`
 
 ### Character
 - `Character.isDigit(char)								//returns true if it is`
@@ -657,7 +751,20 @@
 
 
 ## EXTRAS
-### Sorting Algorithms
+### Sorting 
+	private class IntervalComparator implements Comparator<Interval> {
+        @Override
+        public int compare(Interval a, Interval b) {
+            return a.start < b.start ? -1 : a.start == b.start ? 0 : 1;
+        }
+    }
+
+    public List<Interval> merge(List<Interval> intervals) {
+        Collections.sort(intervals, new IntervalComparator());
+    }
+
+    Same as
+    Collections.sort(intervals, (a,b) -> a.start - b.start)
 
 ### Graph Algorithsm:
 - #### Topological Sort
