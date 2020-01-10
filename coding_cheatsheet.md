@@ -772,13 +772,35 @@ result.toArray(new int[result.size()][]);`
 
 ### Graph Algorithsm:
 - #### Topological Sort
+	Steps:
+	1) Have a map<Integer, List<Integer>> that has the adjacency list
+		a. Integer = node.val; List<Integer> = values that node points to
+	2) Have an indegree array to every node on graph
+		a. For every node pointing to current node indegree of current node, indegree++
+	3) Add to Queue<Integer> all nodes with indegree = 0
+	4) While q is not empty
+		a. Decrement all the in degrees of nodes that the current node points to on map list
+		b. If a indegree = 0, add it to the queue
+
 - #### Dijkstra's Algorithm
 - #### Bellman-Ford Algorithm
 - #### Floyd-Warshall Algorithm
 - #### Prim's Algorithm
 - #### Kruskal's Algorithm
-- #### AVL Tree 			//used when we have a lot of search (balanced)
+
+### Self Balancing BST 
+- #### AVL Tree 			//used when we have a lot of search (more balanced, but more rotation when insert/delete)
+
 - #### Red Black Tree 		//used when we have a lot of insertions/deletions
+
+	Rules: 
+	1) Every node has a color either red or black.
+	2) Root of tree is always black.
+	3) There are no two adjacent red nodes (A red node cannot have a red parent or red child).
+	4) Every path from a node (including root) to any of its descendant NULL node has the same number of black nodes.
+
+### String 
+- #### KMP Algorithm
 
 ## TIPS
 
