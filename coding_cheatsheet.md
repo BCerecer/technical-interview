@@ -393,6 +393,7 @@
 		.size();				//returns size of heap
 		.remove();				//removes root, returns element
 		.peek();				//returns root element
+		.contains();			//returns true if element exists
 
 	- Custom Order:
 
@@ -635,9 +636,12 @@
 		}
 
 - Time Complexity:
-	 - Search/Insert/Delete: O(an)	//a = length of longest word, n = number of words
+	 - Search/Insert/Delete: O(mn)	//m = length of longest word, n = number of words
 	 - Prefix Lookup: O(a)			//a = length of word
 	 - Worst Case Runtime: O(mn)	//m = length of longest word, n = number of words
+- Space Complexity:
+	 - O(mn)						//when there are n words each with length m
+	 - O(k^l)						//on a dense trie, complexisty becomes k = (26 letter alphabet) ^ l = avg length of word
 - Notes: 
 	 - Root node is empty
 	 - Add [* nodes (null nodes)/or set a value]  at end of each word
@@ -725,10 +729,10 @@ result.toArray(new int[result.size()][]);`
 - `str.substring(6);									//returns substring after index (including)`
 - `str.substring(0, 6);									//returns substring in between those indices (excluding last index)`
 - `str.startsWtih('str')								//returns boolean of string(or char)`
-- `str.split()`
-- `str.toCharArray()									`
-- `str.toUpperCase()									`
-- `str.toLowerCase()									`
+- `str.split(" ")										//splits string to array elements depending on delimiter`
+- `str.toCharArray()									//converts string to char array`
+- `str.toUpperCase()									//converts string to uppercase`
+- `str.toLowerCase()									//converts string to lowercase`
 - `str.trim()											//returns str without beginning and end whitespaces`
 - `str.valueOf(int)										//returns string representation of int`
 - Notes
@@ -773,6 +777,8 @@ result.toArray(new int[result.size()][]);`
 - #### Floyd-Warshall Algorithm
 - #### Prim's Algorithm
 - #### Kruskal's Algorithm
+- #### AVL Tree 			//used when we have a lot of search (balanced)
+- #### Red Black Tree 		//used when we have a lot of insertions/deletions
 
 ## TIPS
 
