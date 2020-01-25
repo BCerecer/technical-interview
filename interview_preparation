@@ -22,17 +22,36 @@ https://www.udemy.com/course/software-engineer-interview-unleashed/
 
 ########4 Fundamental OOPs Concepts:##########
 
+#Abstraction = Means that an abstract method is only declared but not implemented. Another class will inherit all non abstract methods and will only have to implement funcitonality to the abstract methods.
+
+    Example: 
+        class abstract Employee {}          //can have non abstract methods that FullTime and ParTime will inherit
+        class FullTime extends Employee {}  //need to implement abstract methods. For example, timeWorked()
+        class PartTime extends Employee {}  //need to implement abstract methods. For example, timeWorked()
+
+#Polymorphism = Means "many forms". Classes that inherit from another can have a different implementation of a method. Depending on how the object is created is which implementation is going to be called.
+
+    Example:
+        class Person{ public void read(){...} }
+        class Student extends Person{ public void read(){...} }
+
+        Person p = new Person();
+        Person s = new Student();
+        p.read();
+        s.read();                       //the methods called by p and s will be different since they are differently implemented
+
+#Inheritance = lets us inherit attributes and methods from another class. A feature that represents the "is a" relationship between different classes.
+
+    Example:
+        class Person {}
+        class Student extends Person {} //Student will inherit all Person's attributes and methods
+                                        //Student "is a" Person
+
 #Encapsulation = The process of wrapping the data (variables) and code acting on the data (methods) together as a single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the methods of their current class. Therefore, it is also known as data hiding.
 
     To achieve encapsulation in Java −
         Declare the variables of a class as private.
         Provide public setter and getter methods to modify and view the variables values.
-
-#Abstraction = The process of selecting data from a larger pool to show only the relevant details to the object. It helps to reduce programming complexity and effort.
-
-#Polymorphism = A programming language's ability to process objects differently depending on their data type or class.
-
-#Inheritance = a feature that represents the "is a" relationship between different classes.
 
 ###############################################
 
@@ -57,7 +76,7 @@ Packages = A package in Java is used to group related classes. Think of it as a 
     Built-in Packages (packages from the Java API)
     User-defined Packages (create your own packages)
 
-Recursion = 
+Recursion = Function calls itself
 
 Class = Determines how an object will behave and what the object will contain. In other words, it is a blueprint or a set of instruction to build a specific type of object.
     -Methods = A method is a block of code which only runs when it is called.
@@ -66,6 +85,7 @@ Class = Determines how an object will behave and what the object will contain. I
     -Superclass(if any): The name of the class’s parent (superclass), if any, preceded by the keyword extends. A class can only extend (subclass) one parent.
     -Interfaces(if any): A comma-separated list of interfaces implemented by the class, if any, preceded by the keyword implements. A class can implement more than one interface.
     -Body: The class body surrounded by braces, { }.
+    -Final: Method/variable can't be override
 
 Data hiding = The process of hiding details of an object or function. Information hiding is a powerful programming technique because it reduces complexity.
 
@@ -83,6 +103,74 @@ Nested classes =    The nested class architecture is divided into two:
                         nested classes that are declared static are called static nested classes whereas,
                         nested classes that are non-static are called inner classes
                     The main difference between these two is that the inner classes have access to all member of the enclosing class (including private), whereas the static nested classes only have access to static members of the outer class.
+
+Check vs Uncheck Exceptions = 
+
+Parameter Passing Convetions = 
+
+Scope = 
+
+JDK =
+JRE =
+JVM =
+
+Threads 
+
+Multi Threaded Programming and other techniques to improve CPU performance
+
+Get better at:
+    Design patterns
+        Angularjs = MVC
+        React = 
+        Angualr = 
+
+        TypeScript vs Javascript = 
+
+        MVC vs Component based
+
+        MVC = User uses controller which modifies models and updates the view
+              Advantage of separating MVC is cleaner, more maintanable and sustainable code
+
+        What is the DOM? 
+
+        Singleton
+
+        OO Design
+
+        MVVM
+
+        end to end principle
+
+        TCP/UDP
+
+        SSL
+
+        HTTP 
+
+        NAT
+
+    Sprinboot
+        HTTP verbs
+            200 successful
+            401 unathorized
+            404 not found
+        CRUD
+        REST 
+            GET
+            PUT 
+            PATCH 
+            POST
+            DELETE
+        SOAP
+
+        Spring MVC vs Springboot
+
+    Jenkins
+        L
+        Unit testing:
+        Integration testing:
+        System testing:
+        Acceptance testing:
 
 ############################################## PREVIOUS PROJECTS/RESUME ##############################################
 

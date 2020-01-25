@@ -388,7 +388,7 @@
 
 	- Max Heap:
 
-		PriorityQueue<Integer> minHeap = new PriorityQueue(Collections.reverseOrder());
+		PriorityQueue<Integer> maxHeap = new PriorityQueue(Collections.reverseOrder());
 		.add(i);				//adds i
 		.size();				//returns size of heap
 		.remove();				//removes root, returns element
@@ -668,7 +668,7 @@
 - `					  .indexOf(o)							//Returns index i of first occurence of element`
 - `					  .isEmpty()							//Returns true if list has no elements`
 - `					  .lastIndexOf(o)						//Returns index i of last occurence of element`
-- `					  .remove(o)							//Removes first occurrence of element and returns boolean`
+- `					  .remove(o)							//Removes first occurrence of element and returns boolean or removes element at index o`
 - `					  .set(int i, o)						//Replaces element at i with new element`
 - `					  .size()								//Returns number of elements in list`
 - `					  .toArray()							//Returns array of elements in proper order`
@@ -690,6 +690,8 @@ result.toArray(new int[result.size()][]);`
 - NOO! 	`int a; 		if(a == null)`
 - YES! 	`int a[]; 	if(a == null)`
 - `a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign`
+- `Integer.paseInt(num)`
+- `Integer.toBinaryString(num)`
 - `Integer.valueOf(str);								//converts numbers in string to Integer(only for string of numbers)`
 - `Integer.valueOf(int);								//converts primitive to Integers`
 - `int i = IntegerObjectName.intValue();				//converts Integer object to int primitive`
@@ -722,6 +724,7 @@ result.toArray(new int[result.size()][]);`
 
 ### String
 - `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
+- `str1.compareTo(str2);								//returns 0 if they match, -number if str1 smaller`
 - `str.indexOf('str');									//returns index of string(or char) in string`
 - `str.contains('x');									//returns boolean depending if string has character inside`
 - `str.isEmpty();										//`
@@ -737,6 +740,7 @@ result.toArray(new int[result.size()][]);`
 - `str.valueOf(int)										//returns string representation of int`
 - Notes
 	 - Strings can be null or empty
+	 - str.substing takes O(n)
 
 ### StringBuilder
 - `StringBuilder str = new StringBuilder(i);			//initialize StringBuilder with i space; can create without i`
@@ -798,6 +802,40 @@ result.toArray(new int[result.size()][]);`
 	2) Root of tree is always black.
 	3) There are no two adjacent red nodes (A red node cannot have a red parent or red child).
 	4) Every path from a node (including root) to any of its descendant NULL node has the same number of black nodes.
+
+
+### Kadanes Algorithm - Largest sum contiguous subarray O(n)
+
+	static int maxSubArraySum(int a[], int size) 
+    { 
+	    int maxSoFar = a[0]; 
+	    int currMax = a[0]; 
+	  
+	    for (int i = 1; i < size; i++) { 
+	        currMax = Math.max(a[i], currMax+a[i]); 
+	        maxSoFar = Math.max(maxSoFar, currMax); 
+	    } 
+	    return maxSoFar; 
+    } 
+
+### Largest increasing subsequence O(nlogn)
+
+	public int lengthOfLIS(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+
 
 ### String 
 - #### KMP Algorithm
