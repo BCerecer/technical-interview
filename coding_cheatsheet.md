@@ -806,8 +806,7 @@ result.toArray(new int[result.size()][]);`
 
 ### Kadanes Algorithm - Largest sum contiguous subarray O(n)
 
-	static int maxSubArraySum(int a[], int size) 
-    { 
+	public int maxSubArraySum(int a[], int size) { 
 	    int maxSoFar = a[0]; 
 	    int currMax = a[0]; 
 	  
