@@ -774,8 +774,12 @@ result.toArray(new int[result.size()][]);`
     Same as
     Collections.sort(intervals, (a,b) -> a.start - b.start)
 
+### LinkedList
+#### Doubly LinkedList
+	Have a hashmap and doubly linkedlist
+
 ### Graph Algorithsm:
-- #### Topological Sort
+#### Topological Sort - Find cycle in directed graph
 	Steps:
 	1) Have a map<Integer, List<Integer>> that has the adjacency list
 		a. Integer = node.val; List<Integer> = values that node points to
@@ -785,6 +789,28 @@ result.toArray(new int[result.size()][]);`
 	4) While q is not empty
 		a. Decrement all the in degrees of nodes that the current node points to on map list
 		b. If a indegree = 0, add it to the queue
+	
+#### DFS - Find cycle in undirected graph
+	Steps:
+	1) Have a map<Integer, List<Integer>> that has the adjacency list  / or List<List<Integer>>
+		a. Integer = node.val; List<Integer> = values that node points to
+	2) Initialized an empty visited hashSet
+		a. Add edges to hashSet as you visit them with DFS
+	3) DFS will have as parameters adjList, curr edge, visited hashSet, parent edge
+	   Example of code:
+		boolean hasCycle(List<List<Integer>> adjList, int u, boolean[] visited, int parent) {
+	        if (visited[u]) {
+	            return true;
+	        }
+	        visited[u] = true;
+	        for(int v: adjList.get(u)){
+	            if(v != parent && hasCycle(adjList, v, visited, u)){
+	                return true;
+	            }
+	        }
+	        return false;
+	    }
+	4) If hasCycle(adList, 0, visited, -1) returns true, there is a cycle in graph
 
 - #### Dijkstra's Algorithm
 - #### Bellman-Ford Algorithm
@@ -803,6 +829,9 @@ result.toArray(new int[result.size()][]);`
 	3) There are no two adjacent red nodes (A red node cannot have a red parent or red child).
 	4) Every path from a node (including root) to any of its descendant NULL node has the same number of black nodes.
 
+
+### String 
+- #### KMP Algorithm
 
 ### Kadanes Algorithm - Largest sum contiguous subarray O(n)
 
@@ -834,10 +863,6 @@ result.toArray(new int[result.size()][]);`
         }
         return len;
     }
-
-
-### String 
-- #### KMP Algorithm
 
 ## TIPS
 
