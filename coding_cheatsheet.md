@@ -803,7 +803,9 @@ result.toArray(new int[result.size()][]);`
 	            return true;
 	        }
 	        visited[u] = true;
-	        for(int v: adjList.get(u)){
+	        for(int v : adjList.get(u)){
+	        	//point we are going to visit is not where we are coming from
+	        	//&& 
 	            if(v != parent && hasCycle(adjList, v, visited, u)){
 	                return true;
 	            }
@@ -830,10 +832,62 @@ result.toArray(new int[result.size()][]);`
 	4) Every path from a node (including root) to any of its descendant NULL node has the same number of black nodes.
 
 
+### Matrix
+
+#### Maximum sum rectangle
+
+	Steps:
+	1) Create new matrix with same lengths and initialize everything to 0
+	   Also have variable left, right, maxSumRect, currSumRect, and coordinates of maxSumRect
+	2) Traverse original matrix from left to right columns
+	3) Keep sum of elements by row on new matrix
+	4) For each column, apply Kadane's algorithm and get the maximum sum of each column.
+		If we find a number greater than maxSumRect, 
+			We update it
+
+    public Result maxSum(int input[][]){
+        int rows = input.length;
+        int cols = input[0].length;
+        int temp[] = new int[rows];
+        Result result = new Result();
+        for(int left = 0; left < cols ; left++){
+            for(int i=0; i < rows; i++){
+                temp[i] = 0;
+            }
+            for(int right = left; right < cols; right++){
+                for(int i=0; i < rows; i++){
+                    temp[i] += input[i][right];
+                }
+                KadaneResult kadaneResult = kadane(temp);
+                if(kadaneResult.maxSum > result.maxSum){
+                    result.maxSum = kadaneResult.maxSum;
+                    result.leftBound = left;
+                    result.rightBound = right;
+                    result.upBound = kadaneResult.start;
+                    result.lowBound = kadaneResult.end;
+                }
+            }
+        }
+        return result;
+    }
+    class KadaneResult{
+        int maxSum;
+        int start;
+        int end;
+        public KadaneResult(int maxSum, int start, int end) {
+            this.maxSum = maxSum;
+            this.start = start;
+            this.end = end;
+        }
+    }
+
 ### String 
 - #### KMP Algorithm
 
-### Kadanes Algorithm - Largest sum contiguous subarray O(n)
+
+### Integer Array
+
+#### Kadanes Algorithm - Largest sum contiguous subarray O(n)
 
 	public int maxSubArraySum(int a[], int size) { 
 	    int maxSoFar = a[0]; 
@@ -846,7 +900,7 @@ result.toArray(new int[result.size()][]);`
 	    return maxSoFar; 
     } 
 
-### Largest increasing subsequence O(nlogn)
+#### Largest increasing subsequence O(nlogn)
 
 	public int lengthOfLIS(int[] nums) {
         int[] dp = new int[nums.length];
