@@ -128,93 +128,6 @@
 - Use Case:
 	- Optimal local solution
 
-
-### KMP Algorithm - Knuth Morris Pratt
-- Use Case:
-	- Pattern searching in strings
-- Steps: 
-	1. Preprocess pattern string and create longest prefix that is also suffix (lps) int array that has same size as pattern. This will be used to skip characters while matching. Whole string can't be considered longest prefix/suffix.
-	2. Populate lps. First, lps[0] = 0 and have a int length of previous longest prefix/suffix. Then, while loop from int i = 1 to i < lps length. Len will always be smaller than i. If charAt(i) == charAr(len), len++, set lps[i] = len, i++. Else, if, len!=0 back len to the len of previous character len = lps[len-1]. Else (len==0), lps[i]=len(0), i++.
-	3. Start the KMPSearch. Have two pointers i and j starting at 0. i will be the index for the txt and j will be for patt. Loop while i < txt.length. If txt.charAt(i)==pat.charAt(j), increment both pointers. If j == M, that means we went though the whole pattern string and we have a match at i-j, also set j = lps[j-1] to skip comparing the patt from beginning(that way we start after prefix). Else if, i<N (to avoid null pointer) && patt.charAt(j) != txt.charAt(i), If j!=0, j=lps[j-1]]. Else, i++.
-	4.	
-- Code:
-
-	    void KMPSearch(String pat, String txt) 
-	    { 
-	        int M = pat.length(); 
-	        int N = txt.length(); 
-	  
-	        // create lps[] that will hold the longest 
-	        // prefix suffix values for pattern 
-	        int lps[] = new int[M]; 
-	        int j = 0; // index for pat[] 
-	  
-	        // Preprocess the pattern (calculate lps[] 
-	        // array) 
-	        computeLPSArray(pat, M, lps); 
-	  
-	        int i = 0; // index for txt[] 
-	        while (i < N) { 
-	            if (pat.charAt(j) == txt.charAt(i)) { 
-	                j++; 
-	                i++; 
-	            } 
-	            if (j == M) { 
-	                System.out.println("Found pattern " + "at index " + (i - j)); 
-	                j = lps[j - 1]; 
-	            } 
-	  
-	            // mismatch after j matches 
-	            else if (i < N && pat.charAt(j) != txt.charAt(i)) { 
-	                // Do not match lps[0..lps[j-1]] characters, 
-	                // they will match anyway 
-	                if (j != 0) 
-	                    j = lps[j - 1]; 
-	                else
-	                    i = i + 1; 
-	            } 
-	        } 
-	    } 
-	  
-	    void computeLPSArray(String pat, int M, int lps[]) 
-	    { 
-	        // length of the previous longest prefix suffix 
-	        int len = 0; 
-	        int i = 1; 
-	        lps[0] = 0; // lps[0] is always 0 
-	  
-	        // the loop calculates lps[i] for i = 1 to M-1 
-	        while (i < M) { 
-	            if (pat.charAt(i) == pat.charAt(len)) { 
-	                len++; 
-	                lps[i] = len; 
-	                i++; 
-	            } 
-	            else // (pat[i] != pat[len]) 
-	            { 
-	                // This is tricky. Consider the example. 
-	                // AAACAAAA and i = 7. The idea is similar 
-	                // to search step. 
-	                if (len != 0) { 
-	                    len = lps[len - 1]; 
-	  
-	                    // Also, note that we do not increment 
-	                    // i here 
-	                } 
-	                else // if (len == 0) 
-	                { 
-	                    lps[i] = len; 
-	                    i++; 
-	                } 
-	            } 
-	        } 
-	    } 
-
-- Time Complexity:
-	- O(n)
-- Space Complexity:
-	- O(n)
-
 ### Recursion
 - Use Case:
 	- Permutations/Combinations to find solutions starting always from the same beginnning 
@@ -778,7 +691,7 @@ result.toArray(new int[result.size()][]);`
 #### Doubly LinkedList
 	Have a hashmap and doubly linkedlist
 
-### Graph Algorithsm:
+### Graph Algorithms:
 #### Topological Sort - Find cycle in directed graph
 	Steps:
 	1) Have a map<Integer, List<Integer>> that has the adjacency list
@@ -813,24 +726,6 @@ result.toArray(new int[result.size()][]);`
 	        return false;
 	    }
 	4) If hasCycle(adList, 0, visited, -1) returns true, there is a cycle in graph
-
-- #### Dijkstra's Algorithm
-- #### Bellman-Ford Algorithm
-- #### Floyd-Warshall Algorithm
-- #### Prim's Algorithm
-- #### Kruskal's Algorithm
-
-### Self Balancing BST 
-- #### AVL Tree 			//used when we have a lot of search (more balanced, but more rotation when insert/delete)
-
-- #### Red Black Tree 		//used when we have a lot of insertions/deletions
-
-	Rules: 
-	1) Every node has a color either red or black.
-	2) Root of tree is always black.
-	3) There are no two adjacent red nodes (A red node cannot have a red parent or red child).
-	4) Every path from a node (including root) to any of its descendant NULL node has the same number of black nodes.
-
 
 ### Matrix
 
@@ -881,10 +776,6 @@ result.toArray(new int[result.size()][]);`
         }
     }
 
-### String 
-- #### KMP Algorithm
-
-
 ### Integer Array
 
 #### Kadanes Algorithm - Largest sum contiguous subarray O(n)
@@ -918,6 +809,54 @@ result.toArray(new int[result.size()][]);`
         return len;
     }
 
+#### Split array in k parts involving continuous sum of elements
+	Steps:
+	1) Create ints having largest number and sum of all elemnents
+	2) Do a binary search between the largest number and sum; because the minimum sum is largest number and maximum sum is sum
+	3) Check if the mid is valid, we can decrement the mid, else increment mid
+	   Check that mid is valid by summing elements in array continuously until they are greater,
+	   then increment the count and if the count is greater than k, return false
+	   		which would mean that we need to decrement mid
+	   else increment mid
+	4) Return the left element of the binary search
+
+	Time:  O(n∗log(sumofarray))
+	Space: O(n)
+    public int splitArray(int[] nums, int m) {
+        int max = 0; long sum = 0;
+        for (int num : nums) {
+            max = Math.max(num, max);
+            sum += num;
+        }
+        if (m == 1) return (int)sum;
+        //binary search
+        long l = max; long r = sum;
+        while (l <= r) {
+            long mid = (l + r)/ 2;
+            if (valid(mid, nums, m)) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return (int)l;
+    }
+    public boolean valid(long target, int[] nums, int m) {
+        int count = 1;
+        long total = 0;
+        for(int num : nums) {
+            total += num;
+            if (total > target) {
+                total = num;
+                count++;
+                if (count > m) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 ## TIPS
 
 ### Combination/Permutation
@@ -932,3 +871,112 @@ result.toArray(new int[result.size()][]);`
 - Be careful when sending LinkedList and matrix (int[][]) to methods because they modify the one you sent without return it
 - Be careful with LinkedList when use iteratively because they are like pointers
 
+
+
+
+
+### If you have lots of extra time
+
+
+### KMP Algorithm - Knuth Morris Pratt
+- Use Case:
+	- Pattern searching in strings
+- Steps: 
+	1. Preprocess pattern string and create longest prefix that is also suffix (lps) int array that has same size as pattern. This will be used to skip characters while matching. Whole string can't be considered longest prefix/suffix.
+	2. Populate lps. First, lps[0] = 0 and have a int length of previous longest prefix/suffix. Then, while loop from int i = 1 to i < lps length. Len will always be smaller than i. If charAt(i) == charAr(len), len++, set lps[i] = len, i++. Else, if, len!=0 back len to the len of previous character len = lps[len-1]. Else (len==0), lps[i]=len(0), i++.
+	3. Start the KMPSearch. Have two pointers i and j starting at 0. i will be the index for the txt and j will be for patt. Loop while i < txt.length. If txt.charAt(i)==pat.charAt(j), increment both pointers. If j == M, that means we went though the whole pattern string and we have a match at i-j, also set j = lps[j-1] to skip comparing the patt from beginning(that way we start after prefix). Else if, i<N (to avoid null pointer) && patt.charAt(j) != txt.charAt(i), If j!=0, j=lps[j-1]]. Else, i++.
+	4.	
+- Code:
+
+	    void KMPSearch(String pat, String txt) 
+	    { 
+	        int M = pat.length(); 
+	        int N = txt.length(); 
+	  
+	        // create lps[] that will hold the longest 
+	        // prefix suffix values for pattern 
+	        int lps[] = new int[M]; 
+	        int j = 0; // index for pat[] 
+	  
+	        // Preprocess the pattern (calculate lps[] 
+	        // array) 
+	        computeLPSArray(pat, M, lps); 
+	  
+	        int i = 0; // index for txt[] 
+	        while (i < N) { 
+	            if (pat.charAt(j) == txt.charAt(i)) { 
+	                j++; 
+	                i++; 
+	            } 
+	            if (j == M) { 
+	                System.out.println("Found pattern " + "at index " + (i - j)); 
+	                j = lps[j - 1]; 
+	            } 
+	  
+	            // mismatch after j matches 
+	            else if (i < N && pat.charAt(j) != txt.charAt(i)) { 
+	                // Do not match lps[0..lps[j-1]] characters, 
+	                // they will match anyway 
+	                if (j != 0) 
+	                    j = lps[j - 1]; 
+	                else
+	                    i = i + 1; 
+	            } 
+	        } 
+	    } 
+	  
+	    void computeLPSArray(String pat, int M, int lps[]) 
+	    { 
+	        // length of the previous longest prefix suffix 
+	        int len = 0; 
+	        int i = 1; 
+	        lps[0] = 0; // lps[0] is always 0 
+	  
+	        // the loop calculates lps[i] for i = 1 to M-1 
+	        while (i < M) { 
+	            if (pat.charAt(i) == pat.charAt(len)) { 
+	                len++; 
+	                lps[i] = len; 
+	                i++; 
+	            } 
+	            else // (pat[i] != pat[len]) 
+	            { 
+	                // This is tricky. Consider the example. 
+	                // AAACAAAA and i = 7. The idea is similar 
+	                // to search step. 
+	                if (len != 0) { 
+	                    len = lps[len - 1]; 
+	  
+	                    // Also, note that we do not increment 
+	                    // i here 
+	                } 
+	                else // if (len == 0) 
+	                { 
+	                    lps[i] = len; 
+	                    i++; 
+	                } 
+	            } 
+	        } 
+	    } 
+
+- Time Complexity:
+	- O(n)
+- Space Complexity:
+	- O(n)
+
+- #### Dijkstra's Algorithm
+- #### Bellman-Ford Algorithm
+- #### Floyd-Warshall Algorithm
+- #### Prim's Algorithm
+- #### Kruskal's Algorithm
+
+### Self Balancing BST 
+- #### AVL Tree 			//used when we have a lot of search (more balanced, but more rotation when insert/delete)
+
+- #### Red Black Tree 		//used when we have a lot of insertions/deletions
+
+	Rules: 
+	1) Every node has a color either red or black.
+	2) Root of tree is always black.
+	3) There are no two adjacent red nodes (A red node cannot have a red parent or red child).
+	4) Every path from a node (including root) to any of its descendant NULL node has the same number of black nodes.
