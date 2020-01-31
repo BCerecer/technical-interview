@@ -273,6 +273,26 @@
 	- key = ra[index]; value = index
 	- Most cases, check containsKey and then put
 
+### LinkedHashMap
+- Use Case:
+	- HashMap with order of keys by insertion position (default) (last inserted, last key in keySet())
+- Code Example:
+
+		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();	
+- Use Case:
+	- HashMap with order of keys by access order  (last accessed [get or put], last key in keySet())
+- Code Example:
+
+		LinkedHashMap<Integer, String> map = new LinkedHashMap<>(16, .75f, true);
+											//int initialCapacity, float loadFactor, boolean accessOrder			
+
+### TreeMap
+- Use Case:
+	- HashMap with order of keys by lexicographic/numerical smallest by default
+- Code Example:
+
+		TreeMap<Integer, String> map = new TreeMap<>();
+
 ### HashSet
 - Use Case:
 	- Have unique

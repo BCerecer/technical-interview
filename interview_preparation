@@ -69,7 +69,7 @@ Literals = Any constant value which can be assigned to the variable is called as
 
 Variables = Reserved area allocated in memory. In other words, it is a name of memory location.
     -Local Variable = A variable declared inside the body of the method is called local variable. You can use this variable only within that method and the other methods in the class aren't even aware that the variable exists. A local variable cannot be defined with "static" keyword.
-    -Instance Variable = A variable declared inside the class but outside the body of the method, is called instance variable. It is not declared as static. It is called instance variable because its value is instance specific and is not shared among instances.
+    -Instance Variable = A variable declared inside the class (outside of method), is called instance variable. It is not declared as static. It is called instance variable because its value is instance specific and is not shared among instances.
     -Static Variable = A variable which is declared as static is called static variable. It cannot be local. You can create a single copy of static variable and share among all the instances of the class. Memory allocation for static variable happens only once when the class is loaded in the memory.
 
 Packages = A package in Java is used to group related classes. Think of it as a folder in a file directory. We use packages to avoid name conflicts, and to write a better maintainable code. Packages are divided into two categories:
@@ -93,6 +93,8 @@ Interface = the languages and codes that the applications use to communicate wit
 
 Messaging = Message passing is a form of communication used in parallel programming and object-oriented programming.
 
+Parallel programming = Write code that utilizes multiple cores of computer to make the program run faster.
+
 Object = a self-contained entity that consists of both data and methods to manipulate the data.
 
 Static = variables/fields and methods belongs to the class instead of the object (can be called without creating an object of the class). Only one copy of it and is shared across all objects declared from this class.  
@@ -104,73 +106,124 @@ Nested classes =    The nested class architecture is divided into two:
                         nested classes that are non-static are called inner classes
                     The main difference between these two is that the inner classes have access to all member of the enclosing class (including private), whereas the static nested classes only have access to static members of the outer class.
 
-Check vs Uncheck Exceptions = 
+Checked vs Unchecked Exceptions = Checked exceptions are checked during compile time and uncheked during runtime.
+                    Checked Exceptions:
+                                    SQLException
+                                    IOException
+                                    ClassNotFoundException
+                                    InvocationTargetException
+                    Unchecked Exceptions:
+                                    NullPointerException
+                                    ArrayIndexOutOfBoundsException
+                                    ArithmeticException
+                                    IllegalArgumentException
+                                    NumberFormatException
 
-Parameter Passing Convetions = 
+Parameter Passing Conventions = Java is always passed by value. However, when we pass the value we are passing the reference to it.
 
-Scope = 
+Scope = The part of the program where the variable is accessible. For example, a method variable only lives withing the method.
 
-JDK =
-JRE =
-JVM =
+JDK = Java Development Kit
 
-Threads 
+    Is for Deveopment. 
+    Includes JRE.
+    Includes JVM.    
+
+JRE = Java Runtime Environment
+
+    It has the everything needed for Running the java programs.
+    Includes JVM.
+
+JVM = Java Virtual Machine
+
+    Included in both JDK and JRE.   
+    Converts byte code to machine specific code and provides platform independence. 
+
+Concurrency = Ability to run several programs or several parts of a program in parallel.
+
+Processes = Runs independently and isolated of other processes. 
+
+Threads = 
 
 Multi Threaded Programming and other techniques to improve CPU performance
 
-Get better at:
-    Design patterns
-        Angularjs = MVC
-        React = 
-        Angualr = 
+Singleton = It's a software pattern where you can only create a Single instance of class. It's useful when exactly one object is needed to coordinate actions across the system
 
-        TypeScript vs Javascript = 
+UI Dev:
 
-        MVC vs Component based
+    Angularjs = MVC
+    React = Component Based Architecture
+    Angular = 
 
-        MVC = User uses controller which modifies models and updates the view
-              Advantage of separating MVC is cleaner, more maintanable and sustainable code
+    TypeScript vs Javascript = 
 
-        What is the DOM? 
+        JavaScript is a scripting language which helps you create interactive web pages.
 
-        Singleton
+        Typescript is a modern age Javascript development language. It is a statically compiled language to write clear and simple Javascript code. It can be run on Node js or any browser which supports ECMAScript 3 or newer versions.
 
-        OO Design
+    Component Based Architecture = Has reusability of components. A component is a software object, intended to interact with other components, encapsulating certain functionality or a set of functionalities.
 
-        MVVM
+    MVC = User uses controller which modifies models and updates the view
+          Advantage of separating MVC is cleaner, more maintanable and sustainable code
 
-        end to end principle
+          User uses Controller, which manipulates the Model, which updates the View, that the user sees
 
-        TCP/UDP
+    What is the DOM? 
 
-        SSL
+    Document Object Model is an interface to web pages. It is essentially an API to the page, allowing programs to read and manipulate the page’s content, structure, and styles.
 
-        HTTP 
+    OO Design Pros:
 
-        NAT
+    Reuse code with inheritance         (Inheritance)
+    Flexibility by overriding methods   (Polymorphism)
+    Break down solutions into bits of code by separating them into objects
+    Easier to mantain
 
-    Sprinboot
-        HTTP verbs
-            200 successful
-            401 unathorized
-            404 not found
-        CRUD
-        REST 
-            GET
-            PUT 
-            PATCH 
-            POST
-            DELETE
-        SOAP
+    MVVM =  Model-View-ViewModel is a structural design pattern. 
 
-        Spring MVC vs Springboot
+            Model holds application data. 
+            View display to user. 
+            ViewModel transform model data into values that can be displayed to View
 
-    Jenkins
-        L
-        Unit testing:
-        Integration testing:
-        System testing:
-        Acceptance testing:
+    Electron = a popular framework that makes it easy to build desktop apps for macOS, Linux or Windows using familiar web technologies (HTML, JavaScript and CSS).
+
+    Nodejs = The runtime environment for javascript. Equivalent to JRE to java. It has everything required to run a javascript program.
+
+    npm = Default package manager for nodejs
+
+Internet 
+    end to end principle
+
+    TCP/UDP
+
+    SSL
+
+    HTTP 
+
+    NAT
+
+Sprinboot
+    HTTP verbs
+        200 successful
+        401 unathorized
+        404 not found
+    CRUD
+    REST 
+        GET
+        PUT 
+        PATCH 
+        POST
+        DELETE
+    SOAP
+
+    Spring MVC vs Springboot
+
+Jenkins
+    L
+    Unit testing:
+    Integration testing:
+    System testing:
+    Acceptance testing:
 
 ############################################## PREVIOUS PROJECTS/RESUME ##############################################
 
