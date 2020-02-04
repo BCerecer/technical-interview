@@ -892,43 +892,18 @@ result.toArray(new int[result.size()][]);`
 			else
 				area = input[top] * (i - stack top - 1)
 
-    public int maxHistogram(int input[]){
-        Deque<Integer> stack = new LinkedList<Integer>();
+    public int largestRectangleArea(int[] height) {
+        int len = height.length;
+        Stack<Integer> s = new Stack<Integer>();
         int maxArea = 0;
-        int area = 0;
-        int i;
-        for(i=0; i < input.length;){
-            if(stack.isEmpty() || input[stack.peekFirst()] <= input[i]){
-                stack.offerFirst(i++);
+        for(int i = 0; i <= len; i++){
+            int h = (i == len ? 0 : height[i]);
+            if(s.isEmpty() || h >= height[s.peek()]){
+                s.push(i);
             }else{
-                int top = stack.pollFirst();
-                //if stack is empty means everything till i has to be greater or equal to input[top] so get area by input[top] * i;
-                if(stack.isEmpty()){
-                    area = input[top] * i;
-                }
-                //if stack is not empty then everythin from i-1 to input.peek() + 1 has to be greater or equal to input[top]
-                //so area = input[top]*(i - stack.peek() - 1);
-                else{
-                    area = input[top] * (i - stack.peekFirst() - 1);
-                }
-                if(area > maxArea){
-                    maxArea = area;
-                }
-            }
-        }
-        while(!stack.isEmpty()){
-            int top = stack.pollFirst();
-            //if stack is empty means everything till i has to be greater or equal to input[top] so get area by input[top] * i;
-            if(stack.isEmpty()){
-                area = input[top] * i;
-            }
-            //if stack is not empty then everything from i-1 to input.peek() + 1 has to be greater or equal to input[top]
-            //so area = input[top]*(i - stack.peek() - 1);
-            else{
-                area = input[top] * (i - stack.peekFirst() - 1);
-            }
-        if(area > maxArea){
-                maxArea = area;
+                int tp = s.pop();
+                maxArea = Math.max(maxArea, height[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));
+                i--;
             }
         }
         return maxArea;
