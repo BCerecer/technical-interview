@@ -588,6 +588,8 @@
 - `Arrays.sort(array)										//Time O(nlogn)`
 - `Arrays.sort(intervals, (a, b) -> a.start - b.start)		//Custom object Intervals[], .start returns value, lambda`
 - `Arrays.sort(ra, (a,b) -> (Integer.compare(a, b)))		//Orders depending of comparison`
+- `Arrays.binarySearch(ra, tar)								//Returns index of location of target. If not found, returns -(insertionpoint)-1`
+- `Arrays.binarySearch(ra, start, end, tar)					//Same as above; start and end are indexes of ra to where do search`
 - Notes
 	 - Array can be null or empty
 
@@ -623,7 +625,7 @@ result.toArray(new int[result.size()][]);`
 - NOO! 	`int a; 		if(a == null)`
 - YES! 	`int a[]; 	if(a == null)`
 - `a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign`
-- `Integer.paseInt(num)`
+- `Integer.parseInt(num)`
 - `Integer.toBinaryString(num)`
 - `Integer.valueOf(str);								//converts numbers in string to Integer(only for string of numbers)`
 - `Integer.valueOf(int);								//converts primitive to Integers`
@@ -659,6 +661,7 @@ result.toArray(new int[result.size()][]);`
 - `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
 - `str1.compareTo(str2);								//returns 0 if they match, -number if str1 smaller`
 - `str.indexOf('str');									//returns index of string(or char) in string`
+- `s.indexOf('/', 2);									//same as above and starting at the specified index`
 - `str.contains('x');									//returns boolean depending if string has character inside`
 - `str.isEmpty();										//`
 - `str.length();										//returns lenght of string`
@@ -670,7 +673,7 @@ result.toArray(new int[result.size()][]);`
 - `str.toUpperCase()									//converts string to uppercase`
 - `str.toLowerCase()									//converts string to lowercase`
 - `str.trim()											//returns str without beginning and end whitespaces`
-- `str.valueOf(int)										//returns string representation of int`
+- `String.valueOf(int)										//returns string representation of int`
 - Notes
 	 - Strings can be null or empty
 	 - str.substing takes O(n)
@@ -843,16 +846,16 @@ result.toArray(new int[result.size()][]);`
 	Time:  O(n∗log(sumofarray))
 	Space: O(n)
     public int splitArray(int[] nums, int m) {
-        int max = 0; long sum = 0;
+        int max = 0; int sum = 0;
         for (int num : nums) {
             max = Math.max(num, max);
             sum += num;
         }
         if (m == 1) return (int)sum;
         //binary search
-        long l = max; long r = sum;
+        int l = max, r = sum;
         while (l <= r) {
-            long mid = (l + r)/ 2;
+            int mid = (l + (r - l))/ 2;
             if (valid(mid, nums, m)) {
                 r = mid - 1;
             } else {
@@ -875,6 +878,51 @@ result.toArray(new int[result.size()][]);`
             }
         }
         return true;
+    }
+
+#### Largest rectangle in histogram
+	Steps:
+	1) If current value is equal or bigger than top of stack,
+			Add to index to stack
+	   Else,
+	   		Keep removing from stack until a number is equal or smaller than current bar
+	2) Calculate area every time we pop from stack
+			if (stack empty)
+				area = input[top] * i
+			else
+				area = input[top] * (i - stack top - 1)
+
+### Strings    
+
+#### Longest Common Subsequence between two strings
+
+	Steps:
+	1) Create a matrix of N=text1.length+1 M=text2.length+1 (because first row and first column is always 0)
+	2) Loop through matrix skipping first column and row
+	3) If the characters text1@i == text2@j, 
+			they are the same characters and the matrix[i][j] = matrix[i-1][j-1]+1
+	   Else (they don't match),
+	   		matrix[i][j] = max of top or left matrix fields
+	4) Return the bottom right element of matrix
+
+	Logic: Start by comparing first row character with each of the subsequent strings formed by adding a column each time
+
+    public int longestCommonSubsequence(String text1, String text2) {
+        if(text1.length()==0||text2.length()==0) return 0;
+        int dp[][] = new int[text1.length()+1][text2.length()+1];
+		
+        for(int i=1;i<text1.length()+1;i++){
+            for(int j=1;j<text2.length()+1;j++){
+                if(text1.charAt(i-1)==text2.charAt(j-1)){
+				//if match, add lcs +1
+                    dp[i][j]=dp[i-1][j-1]+1;
+                }else{
+				//if no match, skip
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);
+                }
+            }
+        }
+        return dp[text1.length()][text2.length()];
     }
 
 ## TIPS

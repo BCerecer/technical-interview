@@ -191,6 +191,50 @@ UI Dev:
 
     npm = Default package manager for nodejs
 
+    Server side 
+        The “server” is a web application server at a remote location. A server side or back-end language runs its scripts before the HTML is loaded, not after. PHP is one of the most popular, as well as Ruby on Rails, ASP.NET and many others. They are called server side languages because their scripts are run not on your computer, but on the server which hosts the website and sends down the HTML code.
+
+    Client side 
+        The “client” is a web browser. Client side development is done almost exclusively in JavaScript. This is, of course, in addition to basic HTML and CSS code. The reason JavaScript is called a client side language is because it runs scripts on your computer after you’ve loaded a web page.
+
+Web Applications stacks:
+    LAMP
+        Linux               (OS)
+        Apache              (Webserver)
+        MySQL               (Data persistence)
+        PHP                 (Programming language)
+
+        Pros: Lots of documentation. Years being used, very stable. Easy to learn.
+
+        Variations:
+            LAMP (with Perl or Python instead of PHP)
+            LAMP (with MongoDB instead of MySQL)
+            WAMP (Windows as OS)
+            MAMP (Mac OS X as OS)
+            XAMPP (Any OS + Perl or PHP + FTP Server)
+            LAPP (PostgreSQL as database)
+
+    MEAN
+        MongoDB             (Data persistence)
+        Express.js          (server-side application framework) Back-end web application framework running on top of Node.js
+        Angular.js          (client-side application framework)
+        Node.js             (server-side environment)
+
+        Pros: Pure javascript. Ability to easily build mobile or desktop apps, for example with Ionic.
+
+        Variations:
+            MERN (React instead of Angular)
+            MEEN (Ember.js instead of Angular)
+
+    Other Stacks:
+
+        WISA            Windows Server / IIS / Microsoft SQL Server / ASP.net
+        Ruby Stack      Ruby/Ruby on Rails/RVM (Ruby Virtual Machine) / SQLite
+        Java+Spring     Preferred by large enterprises and shied by indie developers for its complexity, 
+                        Spring offers an entire full-stack framework written in Java.
+        Django Stack    Python / Django / Apache / MySQL
+
+
 Internet 
     end to end principle
 
@@ -224,6 +268,25 @@ Jenkins
     Integration testing:
     System testing:
     Acceptance testing:
+
+Database:
+    Sql
+        Has schemas
+        MySQL
+    Nosql: 
+
+        MongoDB: schemaless data persistence and is faster than MySQL if you have a lot of read requests
+
+    Schema: Design or list of attributes and instructions that tells the database how the data is organized and how the components are related.
+
+        Example:
+            Name-Last   Name-Middle Name-First  Name-Nick   Phone-AreaCD    Phone-Number
+            Aden        K.          Samson      (Sam)       (555)           234-1221
+            Joe         Brown                               (555)           234-1233
+
+        Physical Schema − This schema pertains to the actual storage of data and its form of storage like files, indices, etc. It defines how the data will be stored in a secondary storage.
+
+        Logical Schema − This schema defines all the logical constraints that need to be applied on the data stored. It defines tables, views, and integrity constraints.
 
 ############################################## PREVIOUS PROJECTS/RESUME ##############################################
 
