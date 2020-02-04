@@ -892,24 +892,28 @@ result.toArray(new int[result.size()][]);`
 			else
 				area = input[top] * (i - stack top - 1)
 
-    public int largestRectangleArea(int[] height) {
-        int len = height.length;
-        Stack<Integer> s = new Stack<Integer>();
-        int maxArea = 0;
-        for(int i = 0; i <= len; i++){
-            int h = (i == len ? 0 : height[i]);
-            if(s.isEmpty() || h >= height[s.peek()]){
-                s.push(i);
-            }else{
-                int tp = s.pop();
-                maxArea = Math.max(maxArea, height[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));
-                i--;
-            }
+	Key: 
+	Stack pushes indexes!
+	Push to stack when value is more than or equal to stack peek. Pop and calculate rectangles when you ladder down.
+
+	public int largestRectangleArea(int[] heights) {
+      int n = heights.length;
+      Stack<Integer> stack = new Stack();
+      int maxArea = 0;
+      for(int i = 0; i <= n; i++){
+        int h = i == n ? 0 : heights[i];
+        while(!stack.isEmpty() && h < heights[stack.peek()]){
+          int curHeight = heights[stack.pop()];
+          int prevIndex = stack.isEmpty() ? -1 : stack.peek();
+          int area = curHeight * (i - prevIndex - 1);
+          maxArea = Math.max(maxArea, area);
         }
-        return maxArea;
+        stack.push(i);
+      }
+      return maxArea;  
     }
 
-### Strings    
+### Strings
 
 #### Longest Common Subsequence between two strings
 
