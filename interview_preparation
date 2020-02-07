@@ -89,7 +89,7 @@ Class = Determines how an object will behave and what the object will contain. I
 
 Data hiding = The process of hiding details of an object or function. Information hiding is a powerful programming technique because it reduces complexity.
 
-Interface = the languages and codes that the applications use to communicate with each other and with the hardware.
+Interface = An interface is a completely "abstract class" that is used to group related methods with empty bodies. An abstract class is semi abstract
 
 Messaging = Message passing is a form of communication used in parallel programming and object-oriented programming.
 
@@ -100,6 +100,13 @@ Object = a self-contained entity that consists of both data and methods to manip
 Static = variables/fields and methods belongs to the class instead of the object (can be called without creating an object of the class). Only one copy of it and is shared across all objects declared from this class.  
          static class let us use a class within a class
 
+Overload =
+
+Garbage collector =
+    Benefits/Contraints of having vs C/C++ that don't
+
+Heap vs stack = stack is that stack memory is used to store local variables and function call 
+                heap memory is used to store objects
 
 Nested classes =    The nested class architecture is divided into two:
                         nested classes that are declared static are called static nested classes whereas,
@@ -141,13 +148,28 @@ JVM = Java Virtual Machine
 
 Concurrency = Ability to run several programs or several parts of a program in parallel.
 
-Processes = Runs independently and isolated of other processes. 
+Processes = Runs independently and isolated of other processes. Thread is subset of process.
 
-Threads = 
+Threads =  A thread is an independent path of execution within a program.
 
-Multi Threaded Programming and other techniques to improve CPU performance
+Multi Threading = has multiple threads running concurrently within a program, each thread is performing some specific task to improve CPU performance
+
+Synchronized= If we are executing something then we need to wait for it to finish before moving to the another task
+
+Non synchronized= Can execute multiple threads at the same time
 
 Singleton = It's a software pattern where you can only create a Single instance of class. It's useful when exactly one object is needed to coordinate actions across the system
+
+OO Design Pros:
+
+Reuse code with inheritance         (Inheritance)
+Flexibility by overriding methods   (Polymorphism)
+Break down solutions into bits of code by separating them into objects
+Easier to maintain
+
+OO Design Patterns:
+
+
 
 UI Dev:
 
@@ -171,13 +193,6 @@ UI Dev:
     What is the DOM? 
 
     Document Object Model is an interface to web pages. It is essentially an API to the page, allowing programs to read and manipulate the page’s content, structure, and styles.
-
-    OO Design Pros:
-
-    Reuse code with inheritance         (Inheritance)
-    Flexibility by overriding methods   (Polymorphism)
-    Break down solutions into bits of code by separating them into objects
-    Easier to mantain
 
     MVVM =  Model-View-ViewModel is a structural design pattern. 
 

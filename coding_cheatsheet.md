@@ -7,6 +7,12 @@
 - Use Case:
 	- Permutation/Combinations/Subsets to find all solutions possible being able to have different starts 
 	- When need to explore different possibilities. Choose, Check, Undo
+- Technique:
+	- On recursive: 
+		- At top, have an exit, found solution (we found a way to solved it)
+		- Marked element as visited
+		- Do recursiveness 
+		- Since we returned, we didn't find solution; remove previously visited element mark
 - Code Example:
 
 		private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, int remain, int start){
@@ -115,6 +121,37 @@
 				return fibValue;
 			}
 		}
+
+- Memoization:
+	- Technique: 
+		- Have a way to store results (i.e. array/matrix)
+		- On recursive:
+			- At top, have a check if we already saw it, return it
+			- Do recursiveness
+			- At bottom, return result for the current that we're checking
+	- Example: 
+		https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+
+	    public int longestIncreasingPath(int[][] matrix) {
+	        if (matrix.length == 0) return 0;
+	        m = matrix.length; n = matrix[0].length;
+	        int[][] cache = new int[m][n];
+	        int ans = 0;
+	        for (int i = 0; i < m; ++i)
+	            for (int j = 0; j < n; ++j)
+	                ans = Math.max(ans, dfs(matrix, i, j, cache));
+	        return ans;
+	    }
+
+	    private int dfs(int[][] matrix, int i, int j, int[][] cache) {
+	        if (cache[i][j] != 0) return cache[i][j];
+	        for (int[] d : dirs) {
+	            int x = i + d[0], y = j + d[1];
+	            if (0 <= x && x < m && 0 <= y && y < n && matrix[x][y] > matrix[i][j])
+	                cache[i][j] = Math.max(cache[i][j], dfs(matrix, x, y, cache));
+	        }
+	        return ++cache[i][j];
+	    }
 
 - Notes
 	 - Design for simple scenario, once it works test on complex
@@ -413,6 +450,7 @@
 
 
 ### Trees
+Depth of Tree is about logn
 #### •Breadth First Search (Level Order Traversal)
 - Code Example:
 		
@@ -510,6 +548,44 @@
 	 - Inorder: (Left, Root, Right)
 	 - Postorder: (Left, Right, Root)
 	 - Trees are connected graph without cycles
+
+#### •Morris Traversal
+- Code Example:
+	
+		//Morris inorder
+		//Main idea is to create a link between the rightest after left node to current node
+		//If, rightest right child == null, then we need to create a link to parent
+		//Else, we found that rightest node == current, we already visited and need to cut link
+		public void inorder(Node root) {
+	        Node current = root;
+	        while(current != null) {
+	            //left is null then print the node and go to right
+	            if (current.left == null) {
+	                System.out.print(current.data + " ");
+	                current = current.right;
+	            }
+	            else {
+	                //find the predecessor.
+	                Node predecessor = current.left;
+	                //To find predecessor keep going right till right node is not null or right node is not current.
+	                while(predecessor.right != current && predecessor.right != null){
+	                    predecessor = predecessor.right;
+	                }
+	                //if right node is null then go left after establishing link from predecessor to current.
+	                if(predecessor.right == null){
+	                    predecessor.right = current;
+	                    current = current.left;
+	                }else{ //left is already visit. Go rigth after visiting current.
+	                    predecessor.right = null;
+	                    System.out.print(current.data + " ");
+	                    current = current.right;
+	                }
+	            }
+	        }
+	    }
+ - Time Complexity:
+	 - Time: O(n)
+	 - Space: O(1)
 
 ### Tries
 - Use Case:
@@ -911,6 +987,68 @@ result.toArray(new int[result.size()][]);`
         stack.push(i);
       }
       return maxArea;  
+    }
+
+#### Find median of 2 sorted arrays T:O(log(length of smallest array)) 
+	Steps:
+	1) Find smallest array (suggestion: make array input 1 always be smallest)
+	2) Binary search on smallest array from l=0 to r=length
+		a) Purpose of algorithm is to f
+
+	index:  0 1  2  3  4  5
+	input1: 1 3  8  9  15
+	input2: 7 11 18 19 21 25
+	combined: 1 3 7 8 9 11 15 18 19 21 25
+
+	Key: 
+	Purpose of algorithm is to find a point that divides the 2 arrays in 2 equal partitions (or left greater by 1)
+		Checks to validate the point:
+			the number on left of point on input1 needs to be smaller or equal to right point on input2
+			the number on left of point on input2 needs to be smaller or equal to right point on input1
+			that would mean that we found a correct partition that all numbers on left partition are smaller than right partition
+			and we can find the median living on these 4 numbers
+
+
+    public double findMedianSortedArrays(int input1[], int input2[]) {
+        //if input1 length is greater than switch them so that input1 is smaller than input2.
+        if (input1.length > input2.length) {
+            return findMedianSortedArrays(input2, input1);
+        }
+        int x = input1.length;
+        int y = input2.length;
+
+        int low = 0;
+        int high = x;
+        while (low <= high) {
+            int partitionX = (low + high)/2;
+            int partitionY = (x + y + 1)/2 - partitionX;
+
+            //if partitionX is 0 it means nothing is there on left side. Use -INF for maxLeftX
+            //if partitionX is length of input then there is nothing on right side. Use +INF for minRightX
+            int maxLeftX = (partitionX == 0) ? Integer.MIN_VALUE : input1[partitionX - 1];
+            int minRightX = (partitionX == x) ? Integer.MAX_VALUE : input1[partitionX];
+
+            int maxLeftY = (partitionY == 0) ? Integer.MIN_VALUE : input2[partitionY - 1];
+            int minRightY = (partitionY == y) ? Integer.MAX_VALUE : input2[partitionY];
+
+            if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
+                //We have partitioned array at correct place
+                // Now get max of left elements and min of right elements to get the median in case of even length combined array size
+                // or get max of left for odd length combined array size.
+                if ((x + y) % 2 == 0) {
+                    return ((double)Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY))/2;
+                } else {
+                    return (double)Math.max(maxLeftX, maxLeftY);
+                }
+            } else if (maxLeftX > minRightY) { //we are too far on right side for partitionX. Go on left side.
+                high = partitionX - 1;
+            } else { //we are too far on left side for partitionX. Go on right side.
+                low = partitionX + 1;
+            }
+        }
+
+        //Only we we can come here is if input arrays were not sorted. Throw in that scenario.
+        throw new IllegalArgumentException();
     }
 
 ### Strings
