@@ -71,12 +71,14 @@
 	- | =  OR = if 1 of them is 1, result is 1
 	- ^ = XOR = eXclusive OR = only 1 when different bits
 	- ~ = NOT = negation = opposite of current bits
-	- signed integer = when integer right digit = 
+	- signed integer = when left bit indicates that number is negative if it has 1, or positive if 0
 	- 2's Comp = For positive numbers, left bit=0; other bits same
 				 For negative numbers, left bit=1; write absolute value in bits; NOT bits; add 1 bit; `~n+1`
 	- >> 1 = Shift all bits 1 space to right = / 2
 	- >> 2 = Shift all bits 2 space to right = / 4
 	- << 3 = Shift all bits 3 space to right = * 8
+	- >>> unsigned shift
+	- >> 	signed shift
 
 
 
@@ -84,6 +86,8 @@
 - Definition:
 	 - Tabulation: Bottom Up
 	 - Memoization: Top Down
+	 	- Combinations: +=
+	 	- Min/Max: =
 - Use Case:
 	 - Optimization, MINIMIZE/MAXIMIZE 		- Math.min/max
 	 - Distinct ways						- += dp[i-1] + 1 
@@ -701,9 +705,9 @@ result.toArray(new int[result.size()][]);`
 - NOO! 	`int a; 		if(a == null)`
 - YES! 	`int a[]; 	if(a == null)`
 - `a = s.charAt(0) != '0' ? 1 : 0;						//conditional question mark number assign`
-- `Integer.parseInt(num)`
-- `Integer.toBinaryString(num)`
-- `Integer.valueOf(str);								//converts numbers in string to Integer(only for string of numbers)`
+- `Integer.parseInt(num)								//converts string of numbers to int (only for numbers)`
+- `Integer.toBinaryString(num)							//converts integer (number) to string in binary`
+- `Integer.valueOf(str);								//converts numbers in string to Integer(also returns ascii for string)`
 - `Integer.valueOf(int);								//converts primitive to Integers`
 - `int i = IntegerObjectName.intValue();				//converts Integer object to int primitive`
 - `Integer.MAX_VALUE = 2^31-1`
@@ -743,7 +747,7 @@ result.toArray(new int[result.size()][]);`
 - `str.length();										//returns lenght of string`
 - `str.substring(6);									//returns substring after index (including)`
 - `str.substring(0, 6);									//returns substring in between those indices (excluding last index)`
-- `str.startsWtih('str')								//returns boolean of string(or char)`
+- `str.startsWith('str')								//returns boolean of string(or char)`
 - `str.split(" ")										//splits string to array elements depending on delimiter`
 - `str.toCharArray()									//converts string to char array`
 - `str.toUpperCase()									//converts string to uppercase`
@@ -808,7 +812,7 @@ result.toArray(new int[result.size()][]);`
 		a. Integer = node.val; List<Integer> = values that node points to
 	2) Initialized an empty visited hashSet
 		a. Add edges to hashSet as you visit them with DFS
-	3) DFS will have as parameters adjList, curr edge, visited hashSet, parent edge
+	3) DFS will have as parameters adjList, curr vertex, visited hashSet, parent vertex
 	   Example of code:
 		boolean hasCycle(List<List<Integer>> adjList, int u, boolean[] visited, int parent) {
 	        if (visited[u]) {
@@ -828,7 +832,7 @@ result.toArray(new int[result.size()][]);`
 
 ### Matrix
 
-#### Maximum sum rectangle
+#### Maximum sum rectangle T: O(col*col*row) S: O(row)
 
 	Steps:
 	1) Create new matrix with same lengths and initialize everything to 0
@@ -993,7 +997,7 @@ result.toArray(new int[result.size()][]);`
 	Steps:
 	1) Find smallest array (suggestion: make array input 1 always be smallest)
 	2) Binary search on smallest array from l=0 to r=length
-		a) Purpose of algorithm is to f
+	...
 
 	index:  0 1  2  3  4  5
 	input1: 1 3  8  9  15
@@ -1053,7 +1057,7 @@ result.toArray(new int[result.size()][]);`
 
 ### Strings
 
-#### Longest Common Subsequence between two strings
+#### Longest Common Subsequence between two strings T: O(mn)  S: O(min(m, n)) 
 
 	Steps:
 	1) Create a matrix of N=text1.length+1 M=text2.length+1 (because first row and first column is always 0)

@@ -100,6 +100,10 @@ Object = a self-contained entity that consists of both data and methods to manip
 Static = variables/fields and methods belongs to the class instead of the object (can be called without creating an object of the class). Only one copy of it and is shared across all objects declared from this class.  
          static class let us use a class within a class
 
+Immutable object = object whose internal state remains constant after it has been entirely created (no setter). Everything inside is private or final
+
+Java negative values are 2's complement
+
 Overload =
 
 Garbage collector =
