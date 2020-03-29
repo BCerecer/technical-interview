@@ -1,5 +1,5 @@
-# ULTIMATE CHEATSHEET
-
+# ULTIMATE CHEATSHEET FOR CODING INTERVIEW
+***
 ## TECHNIQUES/ALGORITHMS
 ### Backtrack
 - Definition:
@@ -29,7 +29,7 @@
 
 - Notes: 
 	- Sort array for permutations/combinations/subsets before sending it to helper method
-
+***
 ### Binary Search
 - Use Case:
 	- Find elemnt in sorted array
@@ -49,7 +49,7 @@
 - Time Complexity:
 	- O(logn)
 
-
+***
 ### Bit Manipulation
 - Use Case:
 	- multiplications/divitions involving multiples of 2
@@ -80,8 +80,7 @@
 	- >>> unsigned shift
 	- >> 	signed shift
 
-
-
+***
 ### Dynamic Programing
 - Definition:
 	 - Tabulation: Bottom Up
@@ -172,8 +171,7 @@
 ### Recursion
 - Use Case:
 	- Permutations/Combinations to find solutions starting always from the same beginnning 
-
-
+***
 ### Two Pointers (sliding window)
 - Use Case:
 	- substring/subarray
@@ -193,8 +191,8 @@
 - Notes:
 	- When using two pointers always use while NOT for loops!
 	- The way you implement the while loop and its conditions will vary depending on problem
-
-		
+***
+***
 ## DATA STRUCTURES
 ### Graphs
 - Code Example:
@@ -285,8 +283,7 @@
 	 - 
 - Notes:
 	 - 
-
-
+***
 ### HashMap
 - Use Case:
 	- Count frequency of an element
@@ -313,7 +310,7 @@
 - Notes
 	- key = ra[index]; value = index
 	- Most cases, check containsKey and then put
-
+***
 ### LinkedHashMap
 - Use Case:
 	- HashMap with order of keys by insertion position (default) (last inserted, last key in keySet())
@@ -326,14 +323,14 @@
 
 		LinkedHashMap<Integer, String> map = new LinkedHashMap<>(16, .75f, true);
 											//int initialCapacity, float loadFactor, boolean accessOrder			
-
+***
 ### TreeMap
 - Use Case:
 	- HashMap with order of keys by lexicographic/numerical smallest by default
 - Code Example:
 
 		TreeMap<Integer, String> map = new TreeMap<>();
-
+***
 ### HashSet
 - Use Case:
 	- Have unique
@@ -346,9 +343,7 @@
 		.isEmpty()				//returns true if empty
 		.remove(o)				//removes value from hashset, returns true if element was in set 
 		.size()					//returns intsize of hashset
-
-
-
+***
 ### Heaps
 - Use Case:
 	- Find the x largest(minHeap)/smallest(maxHeap) element
@@ -387,8 +382,7 @@
 	- Memory:			O(n)			//elements inserted
 - Notes
 	- Element you want to return needs to be at root
-
-
+***
 ### LinkedList
 - Code Example:
 		
@@ -416,8 +410,7 @@
 - Notes:
 	- Remember to use 3 pointers and move iteratively!
 	- IMPORTANT: You can have a linkedlist with different pointers and return a different part depending on which pointer you return
-
-
+***
 ### Queue
 - Code Examples:
 
@@ -432,8 +425,7 @@
 	- Search: O(n)
 	- Insert: O(1)
 	- Remove: O(1)
-
-
+***
 ### Stack
 - Use Case
 	- brackets
@@ -451,8 +443,7 @@
 	- Search: O(n)
 	- Insert: O(1)
 	- Remove: O(1)
-
-
+***
 ### Trees
 Depth of Tree is about logn
 #### •Breadth First Search (Level Order Traversal)
@@ -475,7 +466,7 @@ Depth of Tree is about logn
 	 - Traversal: O(n)
 - Notes:
 	 - Similar to queue
-
+***
 #### •Depth First Search
 - Use Case:
 	 - Preorder: Create copy of tree
@@ -590,7 +581,7 @@ Depth of Tree is about logn
  - Time Complexity:
 	 - Time: O(n)
 	 - Space: O(1)
-
+***
 ### Tries
 - Use Case:
 	 - Word/prefix lookups
@@ -661,7 +652,8 @@ Depth of Tree is about logn
 	 - Each node has 26 children (even if they're not used)
 	 - Size of trie is directly correlated to alphabet used
 	 - Null nodes take up space (a lot!). 26 children nodes per node
-
+***
+***
 ## TOOLS
 ### Arrays
 - `Arrays.fill(ra, value)									//fills every element of ra with given value`
@@ -672,7 +664,7 @@ Depth of Tree is about logn
 - `Arrays.binarySearch(ra, start, end, tar)					//Same as above; start and end are indexes of ra to where do search`
 - Notes
 	 - Array can be null or empty
-
+***
 ### ArrayList
 - `List<Type> str = new ArrayList<Type>()				//Dynamic array`
 - `					  .add(o)								//Adds element`
@@ -689,18 +681,17 @@ Depth of Tree is about logn
 - `					  .toArray()							//Returns array of elements in proper order`
 `List<int[]> result = new ArrayList<>();   
 result.toArray(new int[result.size()][]);`
-
+***
 ### Character
 - `Character.isDigit(char)								//returns true if it is`
 - `Character.isLetter(char)								//returns true if it is`
-
+***
 ### double
 - Double.compare(double1, double2). You pass two doubles and returns 0 if they equal, -1 if the first is smaller, or 1 if the first is greater.
 - `if (Double.compare(double1, double2) == 0)			//equals`
 - `if (Double.compare(d1, d2) < 0)						//d1<d2`
 - `if (Double.compare(d1, d2) > 0)						//d1>d2`
-
-
+***
 ### int
 - NOO! 	`int a; 		if(a == null)`
 - YES! 	`int a[]; 	if(a == null)`
@@ -713,7 +704,7 @@ result.toArray(new int[result.size()][]);`
 - `Integer.MAX_VALUE = 2^31-1`
 - `Integer.MIN_VALUE = -2^31`
 - `num.toString()										//returns String representation of Integer`
-
+***
 ### List
 - `Queue<String> test = new LinkedList<String>();`
 - `List<String> test2 = new LinkedList<String>();`
@@ -721,22 +712,19 @@ result.toArray(new int[result.size()][]);`
 
 - In this example, there are 2 LinkedList objects implementing different interfaces. Therefore, each object will have different methods depending on the interface they're implementing
 - List is a reference type so when you pass myPassedList as an argument to doSomething you are modifying the original list //NOT 100% sure
-
+***
 ### Lambda
 - Lambdas are function that don't belong to a class and can be pass to methods as if it was an object
 - `doubleValue = (int a) -> a*2;						//since it's a one line return can be ommitted`
 - `doubleValue = (int a) ->  {
 		return a*2;										//same as the inline lambda above
 	};`
-
+***
 ### Math
 - `Math.abs(x);`
 - `Math.max(x, y);`
 - `Math.min(x, y);`
-
-### Objects
-- Objects are passed to other functions as pointers so it can be modified without being return. The only exception is that you can't tell the pointer to point another object. Can only modify original!
-
+***
 ### String
 - `str = str.replaceAll("substring", "replacement");	//replaces substring for replacement`
 - `str1.compareTo(str2);								//returns 0 if they match, -number if str1 smaller`
@@ -757,7 +745,7 @@ result.toArray(new int[result.size()][]);`
 - Notes
 	 - Strings can be null or empty
 	 - str.substing takes O(n)
-
+***
 ### StringBuilder
 - `StringBuilder str = new StringBuilder(i);			//initialize StringBuilder with i space; can create without i`
 - `str.append(c);										//can append char, string, int representation, etc`
@@ -772,8 +760,8 @@ result.toArray(new int[result.size()][]);`
 - `str.setCharAt(int i, char c);						//set character c at index i`
 - `str.substring(int l, int r);							//return substring from index l to index r`
 - `str.toString();										//return string representation of str`
-
-
+***
+***
 ## EXTRAS
 ### Sorting 
 	private class IntervalComparator implements Comparator<Interval> {
@@ -789,11 +777,11 @@ result.toArray(new int[result.size()][]);`
 
     Same as
     Collections.sort(intervals, (a,b) -> a.start - b.start)
-
+***
 ### LinkedList
 #### Doubly LinkedList
 	Have a hashmap and doubly linkedlist
-
+***
 ### Graph Algorithms:
 #### Topological Sort - Find cycle in directed graph
 	Steps:
@@ -805,7 +793,7 @@ result.toArray(new int[result.size()][]);`
 	4) While q is not empty
 		a. Decrement all the in degrees of nodes that the current node points to on map list
 		b. If a indegree = 0, add it to the queue
-	
+
 #### DFS - Find cycle in undirected graph
 	Steps:
 	1) Have a map<Integer, List<Integer>> that has the adjacency list  / or List<List<Integer>>
@@ -829,7 +817,7 @@ result.toArray(new int[result.size()][]);`
 	        return false;
 	    }
 	4) If hasCycle(adList, 0, visited, -1) returns true, there is a cycle in graph
-
+***
 ### Matrix
 
 #### Maximum sum rectangle T: O(col*col*row) S: O(row)
@@ -878,7 +866,7 @@ result.toArray(new int[result.size()][]);`
             this.end = end;
         }
     }
-
+***
 ### Integer Array
 
 #### Kadanes Algorithm - Largest sum contiguous subarray O(n)
@@ -1054,7 +1042,7 @@ result.toArray(new int[result.size()][]);`
         //Only we we can come here is if input arrays were not sorted. Throw in that scenario.
         throw new IllegalArgumentException();
     }
-
+***
 ### Strings
 
 #### Longest Common Subsequence between two strings T: O(mn)  S: O(min(m, n)) 
@@ -1087,7 +1075,8 @@ result.toArray(new int[result.size()][]);`
         }
         return dp[text1.length()][text2.length()];
     }
-
+***
+***
 ## TIPS
 
 ### Combination/Permutation
@@ -1105,7 +1094,7 @@ result.toArray(new int[result.size()][]);`
 
 
 
-
+***
 ### If you have lots of extra time
 
 
