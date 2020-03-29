@@ -22,10 +22,30 @@ The way distributed datastores work is by having a cluster of nodes(databases), 
 
 Basically, you can only pick two. For highly available applications that need to be up all the time, the best choice would be **availability** and **partition**, and having a **eventually consistent** data. This means, that the data may have some buffering time to synchronize. 
 
-
-
 ##### RDBMS: 
 ACID: 
 
 ##### NoSQL:
 BASE: Basically Available Soft Estate Eventually Consistent
+
+***
+### Distributed Locks
+
+A **lock** allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
+
+A **mutex** is the same as a lock but it can be system wide (shared by multiple processes).
+
+A **semaphore** does the same as a mutex but allows x number of threads to enter, this can be used for example to limit the number of cpu, io or ram intensive tasks running at the same time.
+
+There are times when using distributed systems that multiple nodes want to access the **same resource**, which can be dangerous since they both can modified it without wanting this as the expected behavior. To handle this scenarios we need a **lock manager**, which administers which node can access to which resource. 
+
+In a distributed design, it is optimal to have **distrbuted locks**. 
+
+#### Distributed Locks Properties:
+
+- **Fault tolerance:** To avoid single points of failure, we need to have multiple nodes replicating the information of current locked resources to which nodes. 
+*The problem that originates with this is that if we replicate the information and the main node having the lock manager approver goes down, we end up without knowing what lock information is true*
+- **Truthfulness:** To achieve multiple points of truth, all the nodes that we use to replicate information need to become **lock managers** and the way we verified that the lock manager approve a resource to some node is by adding **multiple lock manager approvals** a commonly number use for this is **n/2 + 1**, which says that as long as half of the lock managers approve it, the resource is assigned to that node. 
+
+
+
