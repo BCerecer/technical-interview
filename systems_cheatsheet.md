@@ -47,5 +47,7 @@ In a distributed design, it is optimal to have **distrbuted locks**.
 *The problem that originates with this is that if we replicate the information and the main node having the lock manager approver goes down, we end up without knowing what lock information is true*
 - **Truthfulness:** To achieve multiple points of truth, all the nodes that we use to replicate information need to become **lock managers** and the way we verified that the lock manager approve a resource to some node is by adding **multiple lock manager approvals** a commonly number use for this is **n/2 + 1**, which says that as long as half of the lock managers approve it, the resource is assigned to that node. 
 
+**Example:** Suppose we have a distributed system that is in charge of bank transactions. The way the transactions are made is by using **ditributed locks** to ensure that two transactions involving withdrawals from the same account at exactly the same time to make a payment to another account are synchronous and the withdrawal account gets charged correctly.
+
 
 
