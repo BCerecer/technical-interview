@@ -49,5 +49,8 @@ In a distributed design, it is optimal to have **distrbuted locks**.
 
 **Example:** Suppose we have a distributed system that is in charge of bank transactions. The way the transactions are made is by using **ditributed locks** to ensure that two transactions involving withdrawals from the same account at exactly the same time to make a payment to another account are synchronous and the withdrawal account gets charged correctly.
 
+#### Types of locks
 
+- **Pessimistic Lock:** Most commonly used type of lock. ***Pessimistic locking*** is when you take an exclusive lock so that no one else can start modifying the record.
 
+- **Optimistic Lock:** ***Optimistic Locking*** is when you check if the record was updated by someone else before you write the record back. Better for when there are a few conflicts(nodes trying to update same resource) in application.
