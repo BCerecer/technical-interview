@@ -662,6 +662,7 @@ Depth of Tree is about logn
 - `Arrays.sort(ra, (a,b) -> (Integer.compare(a, b)))		//Orders depending of comparison`
 - `Arrays.binarySearch(ra, tar)								//Returns index of location of target. If not found, returns -(insertionpoint)-1`
 - `Arrays.binarySearch(ra, start, end, tar)					//Same as above; start and end are indexes of ra to where do search`
+- `Arrays.asList(array)										//Converts array to list`
 - Notes
 	 - Array can be null or empty
 ***
@@ -758,6 +759,7 @@ result.toArray(new int[result.size()][]);`
 - `str.reverse();										//string gets replaced with reverse`
 - `String[] raStr = str.split(" ");						//splits String by space and put it in ra"`
 - `str.setCharAt(int i, char c);						//set character c at index i`
+- `str.setLength(str.length()-1)						//removes everything after provided length`
 - `str.substring(int l, int r);							//return substring from index l to index r`
 - `str.toString();										//return string representation of str`
 ***
