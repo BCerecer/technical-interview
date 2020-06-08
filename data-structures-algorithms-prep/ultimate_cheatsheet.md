@@ -32,7 +32,7 @@
 ***
 ### Binary Search
 - Use Case:
-	- Find elemnt in sorted array
+	- Find element in sorted array
 - Code Example:
 
 		int l = 0, r = arr.length - 1; 
