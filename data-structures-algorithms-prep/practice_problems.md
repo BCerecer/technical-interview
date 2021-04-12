@@ -18,7 +18,7 @@
 - https://leetcode.com/problems/minimum-window-substring/
 **On numbers (with negatives): //even easier use heap**
 - https://leetcode.com/problems/sliding-window-maximum/description/
-- https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/- 
+- https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 
 ### Binary Search + Greedy:
 **Characteristics: Involves array, sum, and int saying in how many parts**
@@ -88,6 +88,8 @@
 - https://leetcode.com/problems/redundant-connection/
 - https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/
 - https://leetcode.com/problems/redundant-connection-ii/
+- https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/
+- https://leetcode.com/problems/number-of-islands-ii/
 
 ### PriorityQueue:
 - https://leetcode.com/problems/campus-bikes/
@@ -119,15 +121,15 @@
 
 ### Extras:
 
-https://www.hackerrank.com/interview/interview-preparation-kit
-https://leetcode.com/explore/featured/card/top-interview-questions-easy/
-https://leetcode.com/discuss/general-discussion/457546/LeetCode-Problem-Patterns-from-educative.io
-https://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/
-https://leetcode.com/discuss/interview-question/350800/Google-or-Onsite-or-Chocolate-Sweetness
+- https://www.hackerrank.com/interview/interview-preparation-kit
+- https://leetcode.com/explore/featured/card/top-interview-questions-easy/
+- https://leetcode.com/discuss/general-discussion/457546/LeetCode-Problem-Patterns-from-educative.io
+- https://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/
+- https://leetcode.com/discuss/interview-question/350800/Google-or-Onsite-or-Chocolate-Sweetness
 **Hamiltonian cycle**
-https://www.geeksforgeeks.org/hamiltonian-cycle-backtracking-6/
+- https://www.geeksforgeeks.org/hamiltonian-cycle-backtracking-6/
 **Traveling salesman problem**
-https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/
+- https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/
 **K Centers**
-https://www.geeksforgeeks.org/k-centers-problem-set-1-greedy-approximate-algorithm/
+- https://www.geeksforgeeks.org/k-centers-problem-set-1-greedy-approximate-algorithm/
 
