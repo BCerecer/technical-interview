@@ -820,6 +820,68 @@ result.toArray(new int[result.size()][]);`
 	    }
 	4) If hasCycle(adList, 0, visited, -1) returns true, there is a cycle in graph
 ***
+### Union Find
+
+Union find is about grouping elements that meet certain criteria, and as group keep growing, they start to join each other. Union uses find to get the root of the group, which will be join.
+
+#### Earliest moment when everyone become friends
+
+- Union find example:
+https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/
+
+		class Solution {
+				public int earliestAcq(int[][] logs, int N) {
+
+						Arrays.sort(logs, (a, b) -> a[0] - b[0]);
+
+						Unionfind uf = new Unionfind(N);
+						for(int[] log : logs) {
+								// Do union & find and see if the group size is 1 then return the timestamp
+								uf.union(log[1], log[2]);
+								// When union find count == 1, there is only one group, aka everyone is acquintances
+								if(uf.count == 1) {
+										return log[0];
+								}
+						}
+						return -1;
+				}
+
+				public class Unionfind {
+						int[] root;
+						int count;
+
+						public Unionfind(int count) {
+								this.root = new int[count];
+								this.count = count;
+								// Initialize root/parent to be the index/element
+								for(int i=0; i<count; i++) {
+										this.root[i] = i;
+								}
+						}
+
+						public void union(int i, int j) {
+							// Find root/parent of each group
+								int x = find(root, i);
+								int y = find(root, j);
+
+								// Union into one group and decrement count as there is one less group/element
+								if(x != y) {
+										root[x] = y;
+										count--;
+								}
+						}
+
+						public int find(int[] root, int i) {
+							// If this the root/parent, return it
+								if(root[i] == i) {
+										return i;
+								}
+								// Else, go into the parent of current element recursively
+								return find(root, root[i]);
+						}
+				}
+		}
+***
 ### Matrix
 
 #### Maximum sum rectangle T: O(col*col*row) S: O(row)
